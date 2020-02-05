@@ -34,6 +34,9 @@ Apify.main(async () => {
         requestList,
         requestQueue,
         maxConcurrency,
+        requestOptions: {
+            useMobileVersion: mobileResults
+        },
         prepareRequestFunction: ({ request }) => {
             const parsedUrl = url.parse(request.url, true);
             request.userData.startedAt = new Date();
@@ -47,12 +50,15 @@ Apify.main(async () => {
         handlePageFunction: async ({ request, response, body, $ }) => {
             request.userData.finishedAt = new Date();
 
+            await Apify.setValue('PAGE', body, { contentType: 'text/html' });
+
             const nonzeroPage = request.userData.page + 1; // Display same page numbers as Google, i.e. 1, 2, 3..
             const parsedUrl = url.parse(request.url, true);
 
             // We know the URL matches (otherwise we have a bug here)
             const matches = GOOGLE_SEARCH_URL_REGEX.exec(request.url);
             const domain = matches[3].toLowerCase();
+            const resultsPerPage = parsedUrl.query.num || GOOGLE_DEFAULT_RESULTS_PER_PAGE;
 
             // Compose the dataset item.
             const data = {
@@ -67,15 +73,15 @@ Apify.main(async () => {
                     countryCode: GOOGLE_SEARCH_DOMAIN_TO_COUNTRY_CODE[domain] || DEFAULT_GOOGLE_SEARCH_DOMAIN_COUNTRY_CODE,
                     languageCode: parsedUrl.query.hl || null,
                     locationUule: parsedUrl.query.uule || null,
-                    resultsPerPage: parsedUrl.query.num || GOOGLE_DEFAULT_RESULTS_PER_PAGE,
+                    resultsPerPage
                 },
                 url: request.url,
                 hasNextPage: false,
                 resultsTotal: extractors.extractTotalResults($),
                 relatedQueries: extractors.extractRelatedQueries($, parsedUrl.host),
-                paidResults: extractors.extractPaidResults($),
-                paidProducts: extractors.extractPaidProducts($),
-                organicResults: extractors.extractOrganicResults($),
+                paidResults: extractors.extractPaidResults($, parsedUrl.host),
+                paidProducts: extractors.extractPaidProducts($, parsedUrl.host),
+                organicResults: extractors.extractOrganicResults($, parsedUrl.host),
                 customData: customDataFunction
                     ? await executeCustomDataFunction(customDataFunction, { input, $, request, response, html: body })
                     : null,
@@ -83,8 +89,9 @@ Apify.main(async () => {
 
             if (saveHtml) data.html = body;
 
-            // Enqueue new page.
-            const nextPageUrl = $('#pnnext').attr('href');
+            const searchOffset = nonzeroPage * resultsPerPage;
+            // Enqueue new page. Universal "next page" selector
+            const nextPageUrl = $(`a[href*="start=${searchOffset}"]`).attr('href');
             if (nextPageUrl) {
                 data.hasNextPage = true;
                 if (request.userData.page < maxPagesPerQuery - 1 && maxPagesPerQuery) {
