@@ -50,8 +50,6 @@ Apify.main(async () => {
         handlePageFunction: async ({ request, response, body, $ }) => {
             request.userData.finishedAt = new Date();
 
-            await Apify.setValue('PAGE', body, { contentType: 'text/html' });
-
             const nonzeroPage = request.userData.page + 1; // Display same page numbers as Google, i.e. 1, 2, 3..
             const parsedUrl = url.parse(request.url, true);
 
