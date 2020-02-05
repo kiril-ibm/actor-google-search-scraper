@@ -10,11 +10,12 @@
 	},
 	"devDependencies": {
 		"@apify/eslint-config": "^0.0.3",
-		"eslint": "^6.5.1"
+		"eslint": "^6.5.1",
+		"jest": "^25.1.0"
 	},
 	"scripts": {
 		"build-toc": "./node_modules/.bin/markdown-toc README.md -i",
-		"test": "nyc --reporter=html --reporter=text mocha --timeout 60000 --recursive",
+		"test": "jest",
 		"start": "node main",
 		"lint": "./node_modules/.bin/eslint ./src"
 	},

@@ -35,7 +35,7 @@ Apify.main(async () => {
         requestQueue,
         maxConcurrency,
         requestOptions: {
-            useMobileVersion: mobileResults
+            useMobileVersion: mobileResults,
         },
         prepareRequestFunction: ({ request }) => {
             const parsedUrl = url.parse(request.url, true);
@@ -57,6 +57,7 @@ Apify.main(async () => {
             const matches = GOOGLE_SEARCH_URL_REGEX.exec(request.url);
             const domain = matches[3].toLowerCase();
             const resultsPerPage = parsedUrl.query.num || GOOGLE_DEFAULT_RESULTS_PER_PAGE;
+            const { host } = parsedUrl;
 
             // Compose the dataset item.
             const data = {
@@ -71,15 +72,15 @@ Apify.main(async () => {
                     countryCode: GOOGLE_SEARCH_DOMAIN_TO_COUNTRY_CODE[domain] || DEFAULT_GOOGLE_SEARCH_DOMAIN_COUNTRY_CODE,
                     languageCode: parsedUrl.query.hl || null,
                     locationUule: parsedUrl.query.uule || null,
-                    resultsPerPage
+                    resultsPerPage,
                 },
                 url: request.url,
                 hasNextPage: false,
                 resultsTotal: extractors.extractTotalResults($),
-                relatedQueries: extractors.extractRelatedQueries($, parsedUrl.host),
-                paidResults: extractors.extractPaidResults($, parsedUrl.host),
-                paidProducts: extractors.extractPaidProducts($, parsedUrl.host),
-                organicResults: extractors.extractOrganicResults($, parsedUrl.host),
+                relatedQueries: extractors.extractRelatedQueries($, host),
+                paidResults: extractors.extractPaidResults($, host),
+                paidProducts: extractors.extractPaidProducts($, host),
+                organicResults: extractors.extractOrganicResults($, host),
                 customData: customDataFunction
                     ? await executeCustomDataFunction(customDataFunction, { input, $, request, response, html: body })
                     : null,

@@ -14,16 +14,15 @@ const determineLayout = ($) => {
         return 'weblight';
     }
 
-    if ($('meta[name="viewport"]').length > 0) {
+    if ($('meta[name="viewport"]').length > 0 && !$('html[itemscope]').length) {
         // this version is intermediate and has a layout
-        // made only for mobile. the desktop version have no
-        // viewport on the head
+        // made only for mobile. the desktop-like with JS enabled
+        // doesn't apply itemscope to the <html> tag
         return 'mobile';
     }
 
     // assume a desktop layout, selectors are more or less
-    // the same from the full desktop version, and it's not
-    // responsive
+    // the same from the full desktop version
     return 'desktop-like';
 };
 
@@ -38,17 +37,22 @@ exports.determineLayout = determineLayout;
  */
 const getUrlFromParameter = (url, hostname) => {
     if (!url) {
-        return "";
+        return '';
     }
 
     try {
-        return (
-            new URL(ensureItsAbsoluteUrl(url, hostname)).searchParams.get(
-                "q"
-            ) || url
-        );
+        let parsedUrl = new URL(ensureItsAbsoluteUrl(url, hostname));
+        let query = (parsedUrl.searchParams.get('q') || url);
+
+        if (query.includes('googleweblight')) {
+            // nested url, must get the url from `lite_url` query param
+            parsedUrl = new URL(query);
+            query = parsedUrl.searchParams.get('lite_url') || query;
+        }
+
+        return query;
     } catch (e) {
-        return "";
+        return '';
     }
 };
 
@@ -94,31 +98,31 @@ exports.extractOrganicResults = ($, hostname) => {
 
     if (layout === 'mobile') {
         $('#main > div:not([class])')
-        .filter((index, el) => {
-            return $(el).find('a[href^="/url?"]').length > 0;
-        })
-        .each((index, el) => {
-            const $el = $(el);
-
-            searchResults.push({
-                title: $el
-                    .find("a > div")
-                    .eq(0)
-                    .text(),
-                url: getUrlFromParameter(
-                    $el
-                        .find("a")
-                        .first()
-                        .attr("href"),
-                    hostname
-                ),
-                displayedUrl: $el
-                    .find("a > div")
-                    .eq(1)
-                    .text(),
-                description: $el.find(".s3v9rd").first().text(),
+            .filter((index, el) => {
+                return $(el).find('a[href^="/url?"]').length > 0;
             })
-        })
+            .each((index, el) => {
+                const $el = $(el);
+
+                searchResults.push({
+                    title: $el
+                        .find('a > div')
+                        .eq(0)
+                        .text(),
+                    url: getUrlFromParameter(
+                        $el
+                            .find('a')
+                            .first()
+                            .attr('href'),
+                        hostname,
+                    ),
+                    displayedUrl: $el
+                        .find('a > div')
+                        .eq(1)
+                        .text(),
+                    description: $el.find('.s3v9rd').first().text(),
+                });
+            });
     }
 
     if (layout === 'weblight') {
@@ -171,24 +175,24 @@ exports.extractPaidResults = ($, hostname) => {
     }
 
     if (layout === 'mobile') {
-        $("#main > div")
-        .filter((i, el) => {
-            return $(el).find('a[href*="aclk"]').length > 0;
-        })
-        .each((i, el) => {
-            const $el = $(el);
+        $('#main > div')
+            .filter((i, el) => {
+                return $(el).find('a[href*="aclk"]').length > 0;
+            })
+            .each((i, el) => {
+                const $el = $(el);
 
-            ads.push({
-                title: $el
-                    .find('[role="heading"]'),
-                description: $el
-                    .find('.yDYNvb')
-                    .text(),
-                url: $el
-                    .find('a[href*="aclk"]')
-                    .attr("href")
+                ads.push({
+                    title: $el
+                        .find('[role="heading"]'),
+                    description: $el
+                        .find('.yDYNvb')
+                        .text(),
+                    url: $el
+                        .find('a[href*="aclk"]')
+                        .attr('href'),
+                });
             });
-        });
     }
 
     return ads;
