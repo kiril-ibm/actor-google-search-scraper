@@ -89,12 +89,21 @@ Apify.main(async () => {
             if (saveHtml) data.html = body;
 
             const searchOffset = nonzeroPage * resultsPerPage;
+
             // Enqueue new page. Universal "next page" selector
             const nextPageUrl = $(`a[href*="start=${searchOffset}"]`).attr('href');
             if (nextPageUrl) {
                 data.hasNextPage = true;
                 if (request.userData.page < maxPagesPerQuery - 1 && maxPagesPerQuery) {
-                    await requestQueue.addRequest(createSerpRequest(`http://${parsedUrl.host}${nextPageUrl}`, request.userData.page + 1));
+                    const nextPageHref = url.format({
+                        ...parsedUrl,
+                        search: undefined,
+                        query: {
+                            ...parsedUrl.query,
+                            start: `${searchOffset}`,
+                        },
+                    });
+                    await requestQueue.addRequest(createSerpRequest(nextPageHref, request.userData.page + 1));
                 } else {
                     log.info(`Not enqueueing next page for query "${parsedUrl.query.q}" because the "maxPagesPerQuery" limit has been reached.`);
                 }
