@@ -109,7 +109,9 @@ exports.extractOrganicResults = ($, hostname) => {
                     .find('.s3v9rd a')
                     .each((i, siteLinkEl) => {
                         siteLinks.push({
-                            title: $(siteLinkEl).text(),
+                            title: $(siteLinkEl)
+                                .text()
+                                .trim(),
                             url: getUrlFromParameter(
                                 $(siteLinkEl).attr('href'),
                                 hostname,
@@ -122,7 +124,8 @@ exports.extractOrganicResults = ($, hostname) => {
                     title: $el
                         .find('a > div')
                         .eq(0)
-                        .text(),
+                        .text()
+                        .trim(),
                     url: getUrlFromParameter(
                         $el
                             .find('a')
@@ -133,8 +136,13 @@ exports.extractOrganicResults = ($, hostname) => {
                     displayedUrl: $el
                         .find('a > div')
                         .eq(1)
-                        .text(),
-                    description: $el.find('.s3v9rd').first().text(),
+                        .text()
+                        .trim(),
+                    description: $el
+                        .find('.s3v9rd')
+                        .first()
+                        .text()
+                        .trim(),
                     siteLinks,
                 });
             });
@@ -240,7 +248,9 @@ exports.extractPaidResults = ($) => {
 
                 ads.push({
                     title: $el
-                        .find('[role="heading"]'),
+                        .find('[role="heading"]')
+                        .text()
+                        .trim(),
                     description: $el
                         .find('.yDYNvb')
                         .text(),
@@ -290,7 +300,7 @@ exports.extractRelatedQueries = ($, hostname) => {
     if (layout === 'desktop-like') {
         $('div[data-hveid="CA8QAA"] a').each((index, el) => {
             related.push({
-                title: $(el).text(),
+                title: $(el).text().trim(),
                 url: ensureItsAbsoluteUrl($(el).attr('href'), hostname),
             });
         });
@@ -299,7 +309,7 @@ exports.extractRelatedQueries = ($, hostname) => {
     if (layout === 'mobile') {
         $('a[href^="/search"].tHmfQe').each((index, el) => {
             related.push({
-                title: $(el).text(),
+                title: $(el).text().trim(),
                 url: ensureItsAbsoluteUrl($(el).attr('href'), hostname),
             });
         });

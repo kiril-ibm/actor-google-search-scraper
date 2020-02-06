@@ -1,21 +1,20 @@
 const mobile = require('../src/extractors/mobile');
-const { loadFixtureHtmlWithCheerio, loadPair } = require('./utils');
-const Apify = require('apify');
+const { loadFixtureHtmlWithCheerio, loadPair, dataSnapshotter } = require('./utils');
+
+const snapshot = dataSnapshotter();
 
 describe('mobile extractors', () => {
     /* eslint-disable no-loop-func */
-    // const snapshot = {
-    //     mobile: {},
-    //     weblight: {},
-    //     weblight2: {},
-    //     'desktop-like': {}
-    // };
+
+    afterAll(async () => {
+        await snapshot.save();
+    });
 
     for (const type of [
         'mobile',
         'weblight',
         'weblight2',
-        'desktop-like'
+        'desktop-like',
     ]) {
         describe(`${type}`, () => {
             test('determineLayout', async () => {
@@ -27,7 +26,7 @@ describe('mobile extractors', () => {
                 const { $, json } = await loadPair(type);
                 const results = mobile.extractOrganicResults($, 'google.com');
 
-                // snapshot[type].organicResults = results;
+                snapshot.set(type, 'organicResults', results);
 
                 expect(results).toEqual(json.organicResults);
             });
@@ -36,7 +35,7 @@ describe('mobile extractors', () => {
                 const { $, json } = await loadPair(type);
                 const results = mobile.extractPaidProducts($, 'google.com');
 
-                // snapshot[type].paidProducts = results;
+                snapshot.set(type, 'paidProducts', results);
 
                 expect(results).toEqual(json.paidProducts);
             });
@@ -45,7 +44,7 @@ describe('mobile extractors', () => {
                 const { $, json } = await loadPair(type);
                 const results = mobile.extractPaidResults($, 'google.com');
 
-                // snapshot[type].paidResults = results;
+                snapshot.set(type, 'paidResults', results);
 
                 expect(results).toEqual(json.paidResults);
             });
@@ -54,14 +53,10 @@ describe('mobile extractors', () => {
                 const { $, json } = await loadPair(type);
                 const results = mobile.extractRelatedQueries($, 'google.com');
 
-                // snapshot[type].relatedQueries = results;
+                snapshot.set(type, 'relatedQueries', results);
 
                 expect(results).toEqual(json.relatedQueries);
             });
         });
     }
-
-    // afterAll(async () => {
-    //     await Apify.pushData(snapshot);
-    // });
 });
