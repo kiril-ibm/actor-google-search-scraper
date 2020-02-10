@@ -34,9 +34,6 @@ Apify.main(async () => {
         requestList,
         requestQueue,
         maxConcurrency,
-        requestOptions: {
-            useMobileVersion: mobileResults,
-        },
         prepareRequestFunction: ({ request }) => {
             const parsedUrl = url.parse(request.url, true);
             request.userData.startedAt = new Date();
