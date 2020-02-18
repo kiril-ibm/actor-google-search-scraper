@@ -20,7 +20,7 @@ exports.extractOrganicResults = ($) => {
         searchResults.push({
             title: $(el).find('h3').text(),
             url: $(el).find('.r a').attr('href'),
-            displayedUrl: $(el).find('cite').text(),
+            displayedUrl: $(el).find('cite').eq(0).text(),
             description: $(el).find('.s .st').text(),
             siteLinks,
         });
@@ -47,7 +47,7 @@ exports.extractPaidResults = ($) => {
         ads.push({
             title: $(el).find('h3').text(),
             url: $(el).find('h3 a').attr('href'),
-            displayedUrl: $(el).find('cite').text(),
+            displayedUrl: $(el).find('cite').eq(0).text(),
             description: $(el).find('.ellip,.ads-creative').text(),
             siteLinks,
         });
