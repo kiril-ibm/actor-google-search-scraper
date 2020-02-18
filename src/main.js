@@ -53,6 +53,8 @@ Apify.main(async () => {
             // We know the URL matches (otherwise we have a bug here)
             const matches = GOOGLE_SEARCH_URL_REGEX.exec(request.url);
             const domain = matches[3].toLowerCase();
+            const resultsPerPage = parsedUrl.query.num || GOOGLE_DEFAULT_RESULTS_PER_PAGE;
+            const { host } = parsedUrl;
 
             // Compose the dataset item.
             const data = {
@@ -67,15 +69,15 @@ Apify.main(async () => {
                     countryCode: GOOGLE_SEARCH_DOMAIN_TO_COUNTRY_CODE[domain] || DEFAULT_GOOGLE_SEARCH_DOMAIN_COUNTRY_CODE,
                     languageCode: parsedUrl.query.hl || null,
                     locationUule: parsedUrl.query.uule || null,
-                    resultsPerPage: parsedUrl.query.num || GOOGLE_DEFAULT_RESULTS_PER_PAGE,
+                    resultsPerPage,
                 },
                 url: request.url,
                 hasNextPage: false,
                 resultsTotal: extractors.extractTotalResults($),
-                relatedQueries: extractors.extractRelatedQueries($, parsedUrl.host),
+                relatedQueries: extractors.extractRelatedQueries($, host),
                 paidResults: extractors.extractPaidResults($),
                 paidProducts: extractors.extractPaidProducts($),
-                organicResults: extractors.extractOrganicResults($),
+                organicResults: extractors.extractOrganicResults($, host),
                 customData: customDataFunction
                     ? await executeCustomDataFunction(customDataFunction, { input, $, request, response, html: body })
                     : null,
@@ -83,12 +85,22 @@ Apify.main(async () => {
 
             if (saveHtml) data.html = body;
 
-            // Enqueue new page.
-            const nextPageUrl = $('#pnnext').attr('href');
+            const searchOffset = nonzeroPage * resultsPerPage;
+
+            // Enqueue new page. Universal "next page" selector
+            const nextPageUrl = $(`a[href*="start=${searchOffset}"]`).attr('href');
             if (nextPageUrl) {
                 data.hasNextPage = true;
                 if (request.userData.page < maxPagesPerQuery - 1 && maxPagesPerQuery) {
-                    await requestQueue.addRequest(createSerpRequest(`http://${parsedUrl.host}${nextPageUrl}`, request.userData.page + 1));
+                    const nextPageHref = url.format({
+                        ...parsedUrl,
+                        search: undefined,
+                        query: {
+                            ...parsedUrl.query,
+                            start: `${searchOffset}`,
+                        },
+                    });
+                    await requestQueue.addRequest(createSerpRequest(nextPageHref, request.userData.page + 1));
                 } else {
                     log.info(`Not enqueueing next page for query "${parsedUrl.query.q}" because the "maxPagesPerQuery" limit has been reached.`);
                 }
