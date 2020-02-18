@@ -15,7 +15,7 @@ const { log } = Apify.utils;
 Apify.main(async () => {
     const input = await Apify.getInput();
 
-    const { maxConcurrency, maxPagesPerQuery, customDataFunction, mobileResults, saveHtml } = input;
+    const { maxConcurrency, maxPagesPerQuery, customDataFunction, mobileResults, saveHtml, saveHtmlToKeyValueStore } = input;
 
     // Check that user have access to SERP proxy.
     await ensureAccessToSerpProxy();
@@ -27,6 +27,7 @@ Apify.main(async () => {
     const requestList = await Apify.openRequestList('initial-requests', initialRequests);
     const requestQueue = await Apify.openRequestQueue();
     const dataset = await Apify.openDataset();
+    const keyValueStore = await Apify.openKeyValueStore();
     const extractors = mobileResults ? extractorsMobile : extractorsDesktop;
 
     // Create crawler.
@@ -83,6 +84,12 @@ Apify.main(async () => {
 
             if (saveHtml) data.html = body;
 
+            if (saveHtmlToKeyValueStore) {
+                const key = `${request.id}.html`;
+                await keyValueStore.setValue(key, body, { contentType: 'text/html; charset=utf-8' });
+                data.htmlSnapshotUrl = keyValueStore.getPublicUrl(key);
+            }
+
             // Enqueue new page.
             const nextPageUrl = $('#pnnext').attr('href');
             if (nextPageUrl) {
@@ -102,7 +109,7 @@ Apify.main(async () => {
             log.info(`Finished query "${parsedUrl.query.q}" page ${nonzeroPage} (${getInfoStringFromResults(data)})`);
         },
         handleFailedRequestFunction: async ({ request }) => {
-            await Apify.pushData({
+            await dataset.pushData({
                 '#debug': createDebugInfo(request),
                 '#error': true,
             });
