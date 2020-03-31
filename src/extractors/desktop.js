@@ -85,7 +85,7 @@ exports.extractTotalResults = ($) => {
     // Remove text in brackets, get numbers as an array of strings from text "Přibližný počet výsledků: 6 730 000 000 (0,30 s)"
     const numberStrings = wholeString.split('(').shift().match(/(\d+(\.|,|\s))+/g);
     // Find the number with highest length (to filter page number values)
-    const numberString = numberStrings.sort((a, b) => b.length - a.length).shift().replace(/[^\d]/g, '');
+    const numberString = numberStrings ? numberStrings.sort((a, b) => b.length - a.length).shift().replace(/[^\d]/g, '') : 0;
     return Number(numberString);
 };
 
