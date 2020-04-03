@@ -81,7 +81,7 @@ exports.extractPaidProducts = ($) => {
 };
 
 exports.extractTotalResults = ($) => {
-    const wholeString = $('#result-stats').text();
+    const wholeString = $('#resultStats').text() || $('#result-stats').text();
     // Remove text in brackets, get numbers as an array of strings from text "Přibližný počet výsledků: 6 730 000 000 (0,30 s)"
     const numberStrings = wholeString.split('(').shift().match(/(\d+(\.|,|\s))+/g);
     // Find the number with highest length (to filter page number values)
