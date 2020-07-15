@@ -61,7 +61,8 @@ exports.extractOrganicResults = ($, hostname) => {
     const layout = determineLayout($);
 
     if (layout === 'desktop-like') {
-        $('#ires, .srg > div').each((index, el) => {
+        // Not sure if #ires, .srg > div still works in some cases, left it there for now after I added the third selector (Lukas)
+        $('#ires, .srg > div, .mnr-c.xpd.O9g5cc.uUPGi').each((index, el) => {
             const siteLinks = [];
             const $el = $(el);
 
