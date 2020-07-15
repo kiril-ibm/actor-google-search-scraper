@@ -32,6 +32,10 @@ Typical use cases include:
 Read more in the [How to scrape Google Search](https://blog.apify.com/unofficial-google-search-api-from-apify-22a20537a951)
 blog post.
 
+### Number of results
+You can change the number of results per page by using the `resultsPerPage` parameter. The default is 10 but allowed values are 10-100. You can also set `maxPagesPerQuery` to get more results for each query.
+
+Please keep in mind that although Google shows that it internally found millions of results, **Google will never display more than a few hundred results per single search query**. You can try it in your own browser. If you need to get as many results as possible, try to create many similar queries and combine different parameters and locations.
 
 ## Input settings
 
