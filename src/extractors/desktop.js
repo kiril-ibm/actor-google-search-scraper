@@ -18,7 +18,7 @@ exports.extractOrganicResults = ($) => {
         });
 
         searchResults.push({
-            title: $(el).find('h3').text(),
+            title: $(el).find('h3').eq(0).text(),
             url: $(el).find('.r a').attr('href'),
             displayedUrl: $(el).find('cite').eq(0).text(),
             description: $(el).find('.s .st').text(),
