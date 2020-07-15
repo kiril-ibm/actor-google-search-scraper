@@ -80,7 +80,7 @@ Apify.main(async () => {
                 paidProducts: extractors.extractPaidProducts($),
                 organicResults: extractors.extractOrganicResults($, host),
                 customData: customDataFunction
-                    ? await executeCustomDataFunction(customDataFunction, { input, $, request, response, html: body })
+                    ? await executeCustomDataFunction(customDataFunction, { input, $, request, response, html: body, Apify })
                     : null,
             };
 
