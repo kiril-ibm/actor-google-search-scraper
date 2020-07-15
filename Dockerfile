@@ -13,6 +13,9 @@ RUN npm --quiet set progress=false \
  && echo "NPM version:" \
  && npm --version
 
+# This will start working only after upgrading to 0.20.5
+ENV APIFY_DISABLE_OUTDATED_WARNING 1
+
 # By default, the apify/actor-node-basic image uses "npm start" to run the code.
 # You can override this behavior using the CMD instruction here:
 # CMD [ "npm", "start" ]
