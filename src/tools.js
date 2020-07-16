@@ -28,6 +28,7 @@ exports.getInitialRequests = ({
     languageCode,
     locationUule,
     resultsPerPage,
+    includeUnfilteredResults,
 }) => {
     return queries
         .split('\n')
@@ -48,6 +49,7 @@ exports.getInitialRequests = ({
             // Only add this param if non-default, the less query params the better!
             if (resultsPerPage && resultsPerPage !== GOOGLE_DEFAULT_RESULTS_PER_PAGE) qs.num = resultsPerPage;
             if (mobileResults) qs.xmobile = 1;
+            if (includeUnfilteredResults) qs.filter = 0;
 
             return exports.createSerpRequest(`http://www.${domain}/search?${queryString.stringify(qs)}`, 0);
         });

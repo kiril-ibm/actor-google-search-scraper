@@ -15,7 +15,14 @@ const { log } = Apify.utils;
 Apify.main(async () => {
     const input = await Apify.getInput();
 
-    const { maxConcurrency, maxPagesPerQuery, customDataFunction, mobileResults, saveHtml, saveHtmlToKeyValueStore } = input;
+    const {
+        maxConcurrency,
+        maxPagesPerQuery,
+        customDataFunction,
+        mobileResults,
+        saveHtml,
+        saveHtmlToKeyValueStore,
+    } = input;
 
     // Check that user have access to SERP proxy.
     await ensureAccessToSerpProxy();
