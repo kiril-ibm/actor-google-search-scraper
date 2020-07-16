@@ -17,13 +17,33 @@ exports.extractOrganicResults = ($) => {
             });
         });
 
-        searchResults.push({
+        const productInfo = {};
+        const productInfoText = $(el).find('.dhIWPd').text();
+        if (productInfoText) {
+            const ratingMatch = productInfoText.match(/Rating: ([\d.]+)/);
+            if (ratingMatch) {
+                productInfo.rating = Number(ratingMatch[1]);
+            }
+            const numberOfReviewsMatch = productInfoText.match(/(\d+) reviews/);
+            if (numberOfReviewsMatch) {
+                productInfo.numberOfReviews = Number(numberOfReviewsMatch[1]);
+            }
+
+            const priceMatch = productInfoText.match(/\$([\d.]+)/);
+            if (priceMatch) {
+                productInfo.price = Number(priceMatch[1]);
+            }
+        }
+
+        const searchResult = {
             title: $(el).find('h3').eq(0).text(),
             url: $(el).find('.r a').attr('href'),
             displayedUrl: $(el).find('cite').eq(0).text(),
             description: $(el).find('.s .st').text(),
             siteLinks,
-        });
+            productInfo,
+        }
+        searchResults.push(searchResult);
     });
 
     return searchResults;

@@ -3,3 +3,4 @@
 - Better explanation about max limit of results
 - Added [Apify](https://sdk.apify.com/docs/api/apify) to `customDataFunction`
 - Added `includeUnfilteredResults` option
+- Parsing of product info - rating, number of reviews and price
