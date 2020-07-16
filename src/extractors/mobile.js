@@ -141,6 +141,8 @@ exports.extractOrganicResults = ($, hostname) => {
                         });
                     });
 
+                // product info not added because I don't know how to mock this (Lukas)
+
                 searchResults.push({
                     title: $el
                         .find('a > div')
@@ -190,6 +192,8 @@ exports.extractOrganicResults = ($, hostname) => {
                             description: null,
                         });
                     });
+
+                // product info not added because I don't know how to mock this (Lukas)
 
                 searchResults.push({
                     title: $el
