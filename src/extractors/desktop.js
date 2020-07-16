@@ -20,18 +20,18 @@ exports.extractOrganicResults = ($) => {
         const productInfo = {};
         const productInfoText = $(el).find('.dhIWPd').text();
         if (productInfoText) {
-            const ratingMatch = productInfoText.match(/Rating: ([\d.]+)/);
+            const ratingMatch = productInfoText.match(/Rating: ([0-9.]+)/);
             if (ratingMatch) {
                 productInfo.rating = Number(ratingMatch[1]);
             }
-            const numberOfReviewsMatch = productInfoText.match(/(\d+) reviews/);
+            const numberOfReviewsMatch = productInfoText.match(/([0-9,]+) reviews/);
             if (numberOfReviewsMatch) {
-                productInfo.numberOfReviews = Number(numberOfReviewsMatch[1]);
+                productInfo.numberOfReviews = Number(numberOfReviewsMatch[1].replace(/,/g, ''));
             }
 
-            const priceMatch = productInfoText.match(/\$([\d.]+)/);
+            const priceMatch = productInfoText.match(/\$([0-9.,]+)/);
             if (priceMatch) {
-                productInfo.price = Number(priceMatch[1]);
+                productInfo.price = Number(priceMatch[1].replace(/,/g, ''));
             }
         }
 

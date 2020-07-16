@@ -76,6 +76,25 @@ exports.extractOrganicResults = ($, hostname) => {
                     });
                 });
 
+            const productInfo = {};
+            const productInfoRatingText = $(el).find('.tP9Zud').text().trim();
+
+            // Using regexes here because I think it might be more stable than complicated selectors
+            if (productInfoRatingText) {
+                const ratingMatch = productInfoRatingText.match(/([0-9.]+)\s+\(([0-9,]+)\)/);
+                if (ratingMatch) {
+                    productInfo.rating = Number(ratingMatch[1]);
+                    productInfo.numberOfReviews = Number(ratingMatch[2]);
+                }
+            }
+
+            const productInfoPriceText = $(el).find('.xGipK').text().trim();
+            console.log(productInfoPriceText)
+            if (productInfoPriceText) {
+                productInfo.price = Number(productInfoPriceText.replace(/[^0-9.]/g, ''));
+            }
+
+
             searchResults.push({
                 title: $el
                     .find('a div[role="heading"]')
@@ -92,6 +111,7 @@ exports.extractOrganicResults = ($, hostname) => {
                     .find('div.yDYNvb')
                     .text(),
                 siteLinks,
+                productInfo,
             });
         });
     }
