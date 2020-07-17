@@ -92,7 +92,7 @@ exports.extractPaidProducts = ($) => {
         products.push({
             title: headingEl.text(),
             url: headingEl.find('a').attr('href'),
-            displayedUrl: displayedUrlEl.find('span:first').text(),
+            displayedUrl: displayedUrlEl.find('span').first().text(),
             prices,
         });
     });
