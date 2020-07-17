@@ -28,6 +28,10 @@ Apify.main(async () => {
     await ensureAccessToSerpProxy();
     logAsciiArt();
 
+    const proxyConfiguration = await Apify.createProxyConfiguration({
+        groups: [REQUIRED_PROXY_GROUP],
+    });
+
     // Create initial request list and queue.
     const initialRequests = getInitialRequests(input);
     if (!initialRequests.length) throw new Error('The input must contain at least one search query or URL.');
@@ -41,6 +45,7 @@ Apify.main(async () => {
     const crawler = new Apify.CheerioCrawler({
         requestList,
         requestQueue,
+        proxyConfiguration,
         maxConcurrency,
         prepareRequestFunction: ({ request }) => {
             const parsedUrl = url.parse(request.url, true);
@@ -48,8 +53,6 @@ Apify.main(async () => {
             log.info(`Querying "${parsedUrl.query.q}" page ${request.userData.page} ...`);
             return request;
         },
-        useApifyProxy: true,
-        apifyProxyGroups: [REQUIRED_PROXY_GROUP],
         handlePageTimeoutSecs: 60,
         requestTimeoutSecs: 180,
         handlePageFunction: async ({ request, response, body, $ }) => {

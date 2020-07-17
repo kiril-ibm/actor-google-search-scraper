@@ -89,7 +89,6 @@ exports.extractOrganicResults = ($, hostname) => {
             }
 
             const productInfoPriceText = $(el).find('.xGipK').text().trim();
-            console.log(productInfoPriceText)
             if (productInfoPriceText) {
                 productInfo.price = Number(productInfoPriceText.replace(/[^0-9.]/g, ''));
             }
