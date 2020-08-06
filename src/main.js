@@ -2,7 +2,7 @@ const Apify = require('apify');
 const url = require('url');
 const {
     REQUIRED_PROXY_GROUP, GOOGLE_DEFAULT_RESULTS_PER_PAGE, DEFAULT_GOOGLE_SEARCH_DOMAIN_COUNTRY_CODE,
-    GOOGLE_SEARCH_DOMAIN_TO_COUNTRY_CODE, GOOGLE_SEARCH_URL_REGEX } = require('./consts');
+    GOOGLE_SEARCH_DOMAIN_TO_COUNTRY_CODE, GOOGLE_SEARCH_URL_REGEX, MOBILE_USER_AGENT } = require('./consts');
 const extractorsDesktop = require('./extractors/desktop');
 const extractorsMobile = require('./extractors/mobile');
 const {
@@ -51,6 +51,7 @@ Apify.main(async () => {
             const parsedUrl = url.parse(request.url, true);
             request.userData.startedAt = new Date();
             log.info(`Querying "${parsedUrl.query.q}" page ${request.userData.page} ...`);
+            if (mobileResults) request.headers['user-agent'] = MOBILE_USER_AGENT;
             return request;
         },
         handlePageTimeoutSecs: 60,
