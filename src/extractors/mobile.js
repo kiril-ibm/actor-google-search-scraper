@@ -224,66 +224,25 @@ exports.extractOrganicResults = ($, hostname) => {
 exports.extractPaidResults = ($) => {
     const ads = [];
 
-    const layout = determineLayout($);
-
-    if (layout === 'desktop-like') {
-        $('.ads-fr').each((index, el) => {
-            const siteLinks = [];
-            const $el = $(el);
-
-            $el
-                .find('[jsname].m8vZ3d a')
-                .each((i, siteLinkEl) => {
-                    siteLinks.push({
-                        title: $(siteLinkEl).text(),
-                        url: $(siteLinkEl).attr('href'),
-                        description: null,
-                    });
+    $('.ads-fr').each((index, el) => {
+        const siteLinks = [];
+        $(el).find('a').not('[data-rw]').not('.aob-link')
+            .each((i, link) => {
+                siteLinks.push({
+                    title: $(link).text(),
+                    url: $(link).attr('href'),
+                    description: null,
                 });
-
-            ads.push({
-                title: $el
-                    .find('a div[role="heading"]')
-                    .text(),
-                url: $el
-                    .find('a[href*="aclk"]')
-                    .first()
-                    .attr('href'),
-                displayedUrl: $el
-                    .find('.qzEoUe')
-                    .first()
-                    .text(),
-                description: $el
-                    .find('.yDYNvb')
-                    .first()
-                    .text(),
-                siteLinks,
             });
+
+        ads.push({
+            title: $(el).find('div[role=heading]').text(),
+            url: $(el).find('div[role=heading]').parent('a').attr('href'),
+            displayedUrl: $(el).find('w-visurl > div > span').eq(1).text(),
+            description: $(el).find('> div > div > div > div > div > span').text(),
+            siteLinks,
         });
-    }
-
-    if (layout === 'mobile') {
-        $('#main > div')
-            .filter((i, el) => {
-                return $(el).find('a[href*="aclk"]').length > 0;
-            })
-            .each((i, el) => {
-                const $el = $(el);
-
-                ads.push({
-                    title: $el
-                        .find('[role="heading"]')
-                        .text()
-                        .trim(),
-                    description: $el
-                        .find('.yDYNvb')
-                        .text(),
-                    url: $el
-                        .find('a[href*="aclk"]')
-                        .attr('href'),
-                });
-            });
-    }
+    });
 
     return ads;
 };
