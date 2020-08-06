@@ -42,7 +42,7 @@ exports.extractOrganicResults = ($) => {
             description: $(el).find('.s .st').text(),
             siteLinks,
             productInfo,
-        }
+        };
         searchResults.push(searchResult);
     });
 
@@ -52,23 +52,27 @@ exports.extractOrganicResults = ($) => {
 exports.extractPaidResults = ($) => {
     const ads = [];
 
-    $('.ads-ad').each((index, el) => {
+    $('.ads-fr').each((index, el) => {
         const siteLinks = [];
-        $(el).find('ul li').each((i, siteLinkEl) => {
-            const $linkEl = $(siteLinkEl).find('a');
-
-            siteLinks.push({
-                title: $linkEl.text(),
-                url: $linkEl.attr('href'),
-                description: $(siteLinkEl).find('div').text() || null,
+        $(el).find('w-ad-seller-rating').remove();
+        $(el).find('a').not('[data-pcu]').not('[ping]')
+            .each((i, siteLinkEl) => {
+                siteLinks.push({
+                    title: $(siteLinkEl).text(),
+                    url: $(siteLinkEl).attr('href'),
+                    description: $(siteLinkEl).parent('div').parent('h3').parent('div')
+                        .find('> div')
+                        .toArray()
+                        .map(d => $(d).text())
+                        .join(' ') || null,
+                });
             });
-        });
 
         ads.push({
-            title: $(el).find('h3').text(),
-            url: $(el).find('h3 a').attr('href'),
-            displayedUrl: $(el).find('cite').eq(0).text(),
-            description: $(el).find('.ellip,.ads-creative').text(),
+            title: $(el).find('div[role=heading]').text(),
+            url: $(el).find('div[role=heading]').parent('a').attr('href'),
+            displayedUrl: $(el).find('w-visurl > div > span').eq(1).text(),
+            description: $(el).find('> div > div > div > div > div > span').text(),
             siteLinks,
         });
     });

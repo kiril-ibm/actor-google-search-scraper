@@ -143,27 +143,16 @@ exports.extractOrganicResults = ($, hostname) => {
                 // product info not added because I don't know how to mock this (Lukas)
 
                 searchResults.push({
-                    title: $el
-                        .find('a > div')
-                        .eq(0)
+                    title: $el.find('a > h3').eq(0).text().trim(),
+                    url: getUrlFromParameter($el.find('a').first().attr('href'), hostname),
+                    displayedUrl: $el.find('a > div').eq(0).text().trim(),
+                    description: $el.find('.s3v9rd').first().find('> div > div > div')
+                        .clone()
+                        .children()
+                        .remove()
+                        .end()
                         .text()
-                        .trim(),
-                    url: getUrlFromParameter(
-                        $el
-                            .find('a')
-                            .first()
-                            .attr('href'),
-                        hostname,
-                    ),
-                    displayedUrl: $el
-                        .find('a > div')
-                        .eq(1)
-                        .text()
-                        .trim(),
-                    description: $el
-                        .find('.s3v9rd')
-                        .first()
-                        .text()
+                        .replace(/ · /g, '')
                         .trim(),
                     siteLinks,
                 });
@@ -229,58 +218,45 @@ exports.extractPaidResults = ($) => {
     if (layout === 'desktop-like') {
         $('.ads-fr').each((index, el) => {
             const siteLinks = [];
-            const $el = $(el);
-
-            $el
-                .find('[jsname].m8vZ3d a')
-                .each((i, siteLinkEl) => {
+            $(el).find('a').not('[data-rw]').not('.aob-link')
+                .each((i, link) => {
                     siteLinks.push({
-                        title: $(siteLinkEl).text(),
-                        url: $(siteLinkEl).attr('href'),
+                        title: $(link).text(),
+                        url: $(link).attr('href'),
                         description: null,
                     });
                 });
 
             ads.push({
-                title: $el
-                    .find('a div[role="heading"]')
-                    .text(),
-                url: $el
-                    .find('a[href*="aclk"]')
-                    .first()
-                    .attr('href'),
-                displayedUrl: $el
-                    .find('.qzEoUe')
-                    .first()
-                    .text(),
-                description: $el
-                    .find('.yDYNvb')
-                    .first()
-                    .text(),
+                title: $(el).find('div[role=heading]').text(),
+                url: $(el).find('div[role=heading]').parent('a').attr('href'),
+                displayedUrl: $(el).find('w-visurl > div > span').eq(1).text(),
+                description: $(el).find('> div > div > div > div > div > span').text(),
                 siteLinks,
             });
         });
     }
 
     if (layout === 'mobile') {
-        $('#main > div')
-            .filter((i, el) => {
-                return $(el).find('a[href*="aclk"]').length > 0;
-            })
+        $('#main > div').filter((i, el) => $(el).find('a[href*="aclk"]').length > 0)
             .each((i, el) => {
                 const $el = $(el);
 
+                const siteLinks = [];
+                $(el).find('> div > div > div > a').each((j, link) => {
+                    siteLinks.push({
+                        title: $(link).text(),
+                        url: $(link).attr('href'),
+                        description: null,
+                    });
+                });
+
                 ads.push({
-                    title: $el
-                        .find('[role="heading"]')
-                        .text()
-                        .trim(),
-                    description: $el
-                        .find('.yDYNvb')
-                        .text(),
-                    url: $el
-                        .find('a[href*="aclk"]')
-                        .attr('href'),
+                    title: $el.find('[role="heading"]').text().trim(),
+                    url: $el.find('a[href*="aclk"]').attr('href'),
+                    displayedUrl: $(el).find('w-visurl > div > span').eq(1).text(),
+                    description: $el.find('> div > div > div > span').text(),
+                    siteLinks,
                 });
             });
     }
