@@ -1,11 +1,39 @@
 {
-    "url": "http://www.google.com/search?q=Buy%20Ray%20Ban&xmobile=1",
+    "url": "http://www.google.com/search?q=buy%20ray%20ban&xmobile=1&xprovider=V",
     "hasNextPage": true,
     "resultsTotal": "N/A",
     "relatedQueries": [
         {
-            "title": "Feedback",
-            "url": "#"
+            "title": "Ray Bans",
+            "url": "https://www.google.com/search?hl=en&gl=US&q=Ray+Bans&sa=X&ved=2ahUKEwifgpWJmpHrAhX8wjgGHQiqDsYQ1QIwEnoECAoQAg"
+        },
+        {
+            "title": "Ray-Ban sunglasses",
+            "url": "https://www.google.com/search?hl=en&gl=US&q=Ray-Ban+sunglasses&sa=X&ved=2ahUKEwifgpWJmpHrAhX8wjgGHQiqDsYQ1QIwE3oECAoQBA"
+        },
+        {
+            "title": "Ray-Ban sale",
+            "url": "https://www.google.com/search?hl=en&gl=US&q=Ray-Ban+sale&sa=X&ved=2ahUKEwifgpWJmpHrAhX8wjgGHQiqDsYQ1QIwFHoECAoQBg"
+        },
+        {
+            "title": "Ray-Ban outlet",
+            "url": "https://www.google.com/search?hl=en&gl=US&q=Ray-Ban+outlet&sa=X&ved=2ahUKEwifgpWJmpHrAhX8wjgGHQiqDsYQ1QIwFXoECAoQCA"
+        },
+        {
+            "title": "Ray-Ban promo code",
+            "url": "https://www.google.com/search?hl=en&gl=US&q=Ray-Ban+promo+code&sa=X&ved=2ahUKEwifgpWJmpHrAhX8wjgGHQiqDsYQ1QIwFnoECAoQCg"
+        },
+        {
+            "title": "Ray-Ban Aviators",
+            "url": "https://www.google.com/search?hl=en&gl=US&q=Ray-Ban+Aviators&sa=X&ved=2ahUKEwifgpWJmpHrAhX8wjgGHQiqDsYQ1QIwF3oECAoQDA"
+        },
+        {
+            "title": "Ray-Ban Wayfarer",
+            "url": "https://www.google.com/search?hl=en&gl=US&q=Ray-Ban+Wayfarer&sa=X&ved=2ahUKEwifgpWJmpHrAhX8wjgGHQiqDsYQ1QIwGHoECAoQDg"
+        },
+        {
+            "title": "ray-ban sunglasses outlet",
+            "url": "https://www.google.com/search?hl=en&gl=US&q=ray-ban+sunglasses+outlet&sa=X&ved=2ahUKEwifgpWJmpHrAhX8wjgGHQiqDsYQ1QIwGXoECAoQEA"
         }
     ],
     "paidResults": [
@@ -13,135 +41,82 @@
             "title": "Ray-Ban® Up to 50% Off - Free Shipping & Returns",
             "url": "https://www.ray-ban.com/usa/sunglasses/view-all/plp",
             "displayedUrl": "www.ray-ban.com/",
-            "description": "",
+            "description": "Shop Now & Enjoy Up to 50% Off Selected Styles. Free Shipping on All Orders. Shop Your Favorite Sunglasess Today! Online exclusives. Buy Now and Pay Later. Prescription Lenses.",
             "siteLinks": [
                 {
                     "title": "Men's Sunglasses",
-                    "url": "https://www.google.com/aclk?sa=l&ai=DChcSEwiU4MnsuYbrAhXzCIgJHfwCBeYYABAHGgJxbg&sig=AOD64_1syI0NUK6ScLqkK4uCsvd5isMFVQ&q=&ved=2ahUKEwja4MPsuYbrAhVGmHIEHfPaAz4QwgUoAHoECBEQBw&adurl=",
+                    "url": "https://www.google.com/aclk?sa=l&ai=DChcSEwiHgZyJmpHrAhVSPmAKHTAlASQYABACGgJ0bQ&sig=AOD64_2IZ8eT2NtmO2ntWHHPWizFhWsB9w&q=&ved=2ahUKEwifgpWJmpHrAhX8wjgGHQiqDsYQwgUoAHoECA0QBw&adurl=",
                     "description": null
                 },
                 {
                     "title": "Women's Sunglasses",
-                    "url": "https://www.google.com/aclk?sa=l&ai=DChcSEwiU4MnsuYbrAhXzCIgJHfwCBeYYABALGgJxbg&sig=AOD64_2JW1CSfHzC661Okn9IXQIbrUYAMg&q=&ved=2ahUKEwja4MPsuYbrAhVGmHIEHfPaAz4QwgUoAXoECBEQCA&adurl=",
+                    "url": "https://www.google.com/aclk?sa=l&ai=DChcSEwiHgZyJmpHrAhVSPmAKHTAlASQYABADGgJ0bQ&sig=AOD64_1UaDOpROFDpSYHQLEOaS84lvA6gQ&q=&ved=2ahUKEwifgpWJmpHrAhX8wjgGHQiqDsYQwgUoAXoECA0QCA&adurl=",
                     "description": null
                 },
                 {
                     "title": "Official Sales",
-                    "url": "https://www.google.com/aclk?sa=l&ai=DChcSEwiU4MnsuYbrAhXzCIgJHfwCBeYYABAPGgJxbg&sig=AOD64_2MKO9oenH9xMDGLZK3WJHZBqifkw&q=&ved=2ahUKEwja4MPsuYbrAhVGmHIEHfPaAz4QwgUoAnoECBEQCQ&adurl=",
+                    "url": "https://www.google.com/aclk?sa=l&ai=DChcSEwiHgZyJmpHrAhVSPmAKHTAlASQYABAEGgJ0bQ&sig=AOD64_1FUtvBJuah5aOuPwnPafMqIY7Jsw&q=&ved=2ahUKEwifgpWJmpHrAhX8wjgGHQiqDsYQwgUoAnoECA0QCQ&adurl=",
                     "description": null
                 },
                 {
                     "title": "Customize Your Sunglasses",
-                    "url": "https://www.google.com/aclk?sa=l&ai=DChcSEwiU4MnsuYbrAhXzCIgJHfwCBeYYABATGgJxbg&sig=AOD64_3kjRGQAQHYhxeXDzN9d0V21lMo_Q&q=&ved=2ahUKEwja4MPsuYbrAhVGmHIEHfPaAz4QwgUoA3oECBEQCg&adurl=",
+                    "url": "https://www.google.com/aclk?sa=l&ai=DChcSEwiHgZyJmpHrAhVSPmAKHTAlASQYABAFGgJ0bQ&sig=AOD64_2sTfKfsxh4NhzH5-hAajoGn0ot2A&q=&ved=2ahUKEwifgpWJmpHrAhX8wjgGHQiqDsYQwgUoA3oECA0QCg&adurl=",
+                    "description": null
+                },
+                {
+                    "title": "Up to 50% off Official PromoStarts Jul 9",
+                    "url": "https://www.google.com/aclk?sa=l&ai=DChcSEwiHgZyJmpHrAhVSPmAKHTAlASQYABAGGgJ0bQ&sig=AOD64_1jEE00PJ5gUh7O8ai_jAr5yFMSGA&q=&ved=2ahUKEwifgpWJmpHrAhX8wjgGHQiqDsYQ390BegQIDRAM&adurl=",
                     "description": null
                 }
             ]
-        },
-        {
-            "title": "Ray Ban Sunglasses - 50% Off Selected Style - SunglassHut.com",
-            "url": "https://www.sunglasshut.com/us/ray-ban",
-            "displayedUrl": "www.sunglasshut.com/",
-            "description": "",
-            "siteLinks": []
-        },
-        {
-            "title": "Ray-Ban Sunglasses & Glasses | 50% Off Lens + Free Shipping",
-            "url": "https://www.glassesusa.com/ray-ban",
-            "displayedUrl": "www.glassesusa.com/",
-            "description": "",
-            "siteLinks": []
-        },
-        {
-            "title": "Ray-Ban | Nordstrom Rack",
-            "url": "https://www.nordstromrack.com/brands/Ray-Ban",
-            "displayedUrl": "www.nordstromrack.com/",
-            "description": "",
-            "siteLinks": []
         }
     ],
-    "paidProducts": [
-        {
-            "title": "Ray-ban Sunglasses Round Metal Unisex Gold Frame Green Lenses 53-21",
-            "url": "/aclk?sa=l&ai=DChcSEwiU4MnsuYbrAhXzCIgJHfwCBeYYABAJGgJxbg&sig=AOD64_0GAHI6qhcouoN-a3EOZKaIxjXPBA&ctype=5&q=&ved=2ahUKEwja4MPsuYbrAhVGmHIEHfPaAz4Q8w56BAgNECc&adurl=",
-            "displayedUrl": "Ray-Ban",
-            "prices": [
-                "$154.00",
-                "Ray-Ban",
-                "(9k+)"
-            ]
-        },
-        {
-            "title": "Ray-ban Sunglasses Aviator Gradient Unisex Gold Frame Blue Lenses 58-14",
-            "url": "/aclk?sa=l&ai=DChcSEwiU4MnsuYbrAhXzCIgJHfwCBeYYABAIGgJxbg&sig=AOD64_3ia0Mp_t7No3VtEq7Dk8fv6D84UA&ctype=5&q=&ved=2ahUKEwja4MPsuYbrAhVGmHIEHfPaAz4Q8w56BAgNEC0&adurl=",
-            "displayedUrl": "Ray-Ban",
-            "prices": [
-                "$169.00",
-                "Ray-Ban",
-                "(9k+)"
-            ]
-        },
-        {
-            "title": "Ray-ban Sunglasses Justin Classic Unisex Black Frame Gray Lenses 55-16",
-            "url": "/aclk?sa=l&ai=DChcSEwiU4MnsuYbrAhXzCIgJHfwCBeYYABAKGgJxbg&sig=AOD64_0dqw-NVAHxT-NRyP5GB-rzxuuz1Q&ctype=5&q=&ved=2ahUKEwja4MPsuYbrAhVGmHIEHfPaAz4Q8w56BAgNEDM&adurl=",
-            "displayedUrl": "Ray-Ban",
-            "prices": [
-                "$147.00",
-                "Ray-Ban",
-                "(3k+)"
-            ]
-        },
-        {
-            "title": "Ray-ban Sunglasses Erika Classic Unisex Gunmetal Frame Brown Lenses 54-18",
-            "url": "/aclk?sa=l&ai=DChcSEwiU4MnsuYbrAhXzCIgJHfwCBeYYABARGgJxbg&sig=AOD64_16uEM5emHaf3z4DzlCyfGMgYJidQ&ctype=5&q=&ved=2ahUKEwja4MPsuYbrAhVGmHIEHfPaAz4Q8w56BAgNEDk&adurl=",
-            "displayedUrl": "Ray-Ban",
-            "prices": [
-                "$147.00",
-                "Ray-Ban",
-                "(3k+)"
-            ]
-        },
-        {
-            "title": "Ray-Ban 52Mm Wayferer Sunglasses Red Orang At Nordstrom Rack - Mens Wayfarer Sunglasses & Eyeware",
-            "url": "/aclk?sa=l&ai=DChcSEwiU4MnsuYbrAhXzCIgJHfwCBeYYABAQGgJxbg&sig=AOD64_3fAhnZh1ZZcMKH_Z22HoLsxQm3_A&ctype=5&q=&ved=2ahUKEwja4MPsuYbrAhVGmHIEHfPaAz4Q8w56BAgNED8&adurl=",
-            "displayedUrl": "Nordstrom Rack",
-            "prices": [
-                "$59.97",
-                "Nordstrom Rack",
-                "(19)"
-            ]
-        },
-        {
-            "title": "",
-            "displayedUrl": "",
-            "prices": []
-        },
-        {
-            "title": "",
-            "displayedUrl": "",
-            "prices": []
-        },
-        {
-            "title": "",
-            "displayedUrl": "",
-            "prices": []
-        },
-        {
-            "title": "",
-            "displayedUrl": "",
-            "prices": []
-        },
-        {
-            "title": "",
-            "displayedUrl": "",
-            "prices": []
-        }
-    ],
+    "paidProducts": [],
     "organicResults": [
+        {
+            "title": "Sunglasses - Free Shipping | Ray-Ban USStore Locator | Ray-Ban® USARay-Ban® Official site USA",
+            "url": "https://www.ray-ban.com/usa/mobile/sunglasses/clp",
+            "displayedUrl": "Ray-Ban › mobile › sunglasses › clp",
+            "description": "Accepted Payment Methods · Sales Tax and Proof of Purchase · FAQs · Size guide · Face shape guide · Special ...If you buy two or more pairs, you'll receive a 20% discount on the least expensive . Not bad, uh? If you are a California ...GET 40% OFF PRESCRIPTION LENSES WITH FRAME PURCHASE View all · Ray-Ban Sunglasses AVIATOR CLASSIC ...",
+            "siteLinks": [
+                {
+                    "title": "New Wayfarer Classic",
+                    "url": "https://www.ray-ban.com/usa/sunglasses/RB2132%20UNISEX%20047-new%20wayfarer%20classic-gloss%20black/805289048527",
+                    "description": null
+                },
+                {
+                    "title": "Hexagonal",
+                    "url": "https://www.ray-ban.com/usa/sunglasses/RB3548N%20UNISEX%20007-hexagonal%20flat%20lenses-polished%20gold/8053672689679",
+                    "description": null
+                },
+                {
+                    "title": "Erika Classic",
+                    "url": "https://www.ray-ban.com/usa/sunglasses/RB4171%20UNISEX%20012-erika%20classic-gloss%20tortoise/8053672475920",
+                    "description": null
+                },
+                {
+                    "title": "Round Double Bridge",
+                    "url": "https://www.ray-ban.com/usa/sunglasses/RB3647N%20UNISEX%20001-round%20double%20bridge-polished%20gold/8053672737622",
+                    "description": null
+                },
+                {
+                    "title": "Frank legend gold",
+                    "url": "https://www.ray-ban.com/usa/sunglasses/RB3857%20UNISEX%20009-frank%20legend%20gold-gold/8056597178433",
+                    "description": null
+                },
+                {
+                    "title": "Shooter",
+                    "url": "https://www.ray-ban.com/usa/sunglasses/RB3138%20MALE%20003-shooter-gold/805289003694",
+                    "description": null
+                }
+            ],
+            "productInfo": {}
+        },
         {
             "title": "Sunglasses - Free Shipping | Ray-Ban US",
             "url": "https://www.ray-ban.com/usa/mobile/sunglasses/clp",
             "displayedUrl": "Ray-Ban › mobile › sunglasses › clp",
-            "description": "Accepted Payment Methods · Sales Tax and Proof of Purchase · FAQs · Size guide · Face shape guide · Special Offers ...",
+            "description": "Accepted Payment Methods · Sales Tax and Proof of Purchase · FAQs · Size guide · Face shape guide · Special ...",
             "siteLinks": [
                 {
                     "title": "New Wayfarer Classic",
@@ -180,7 +155,7 @@
             "title": "Store Locator | Ray-Ban® USA",
             "url": "https://www.ray-ban.com/usa/mobile/store-locator",
             "displayedUrl": "Ray-Ban › usa › mobile › store-loca...",
-            "description": "If you buy two or more pairs, you'll receive a 20% discount on the least expensive . Not bad, uh? If you are a ...",
+            "description": "If you buy two or more pairs, you'll receive a 20% discount on the least expensive . Not bad, uh? If you are a California ...",
             "siteLinks": [],
             "productInfo": {}
         },
@@ -189,6 +164,14 @@
             "url": "https://www.ray-ban.com/usa/mobile",
             "displayedUrl": "Ray-Ban › usa › mobile",
             "description": "GET 40% OFF PRESCRIPTION LENSES WITH FRAME PURCHASE View all · Ray-Ban Sunglasses AVIATOR CLASSIC ...",
+            "siteLinks": [],
+            "productInfo": {}
+        },
+        {
+            "title": "Ray-Ban - Amazon.com",
+            "url": "https://www.amazon.com/stores/Ray-Ban/Ray-Ban/page/0FFD63F6-6B0E-4DEE-99A2-CAE5788EF46B",
+            "displayedUrl": "Amazon.com › Ray-Ban › page",
+            "description": "Ray-Ban brand store on Amazon.",
             "siteLinks": [],
             "productInfo": {}
         },
@@ -209,11 +192,6 @@
                     "description": null
                 },
                 {
-                    "title": "Sales & Discounts Ray-Ban ...",
-                    "url": "https://www.macys.com/shop/handbags-accessories/ray-ban-shop/Special_offers/Sales%20%26%20Discounts?id=78258",
-                    "description": null
-                },
-                {
                     "title": "Clearance/Closeout Ray-Ban ...",
                     "url": "https://www.macys.com/shop/handbags-accessories/ray-ban-shop/Special_offers/Clearance%2FCloseout?id=78258",
                     "description": null
@@ -229,19 +207,16 @@
                     "description": null
                 },
                 {
+                    "title": "Sales & Discounts (30)",
+                    "url": "https://www.macys.com/shop/handbags-accessories/ray-ban-shop/Special_offers/Sales%20%26%20Discounts?id=78258",
+                    "description": null
+                },
+                {
                     "title": "Large",
                     "url": "https://www.macys.com/shop/handbags-accessories/ray-ban-shop/Frame_fit/Large?id=78258",
                     "description": null
                 }
             ],
-            "productInfo": {}
-        },
-        {
-            "title": "Ray-Ban: Ray-Ban - Amazon.com",
-            "url": "https://www.amazon.com/stores/Ray-Ban/Ray-Ban/page/0FFD63F6-6B0E-4DEE-99A2-CAE5788EF46B",
-            "displayedUrl": "Amazon.com › Ray-Ban › page",
-            "description": "Ray-Ban brand store on Amazon.",
-            "siteLinks": [],
             "productInfo": {}
         },
         {
@@ -251,13 +226,13 @@
             "description": "Browse the Sunglass Hut Online selection of Ray-Ban sunglasses, including styles like Wayfarer, Aviator and ...",
             "siteLinks": [
                 {
-                    "title": "Ray-Ban RB3016 ...",
-                    "url": "https://www.sunglasshut.com/us/ray-ban/rb3016-805289653653",
+                    "title": "Ray-Ban RB3548N ...",
+                    "url": "https://www.sunglasshut.com/us/ray-ban/rb3548n-8053672611649",
                     "description": null
                 },
                 {
-                    "title": "Ray-Ban RB3548N ...",
-                    "url": "https://www.sunglasshut.com/us/ray-ban/rb3548n-8053672611649",
+                    "title": "Ray-Ban RB3016 ...",
+                    "url": "https://www.sunglasshut.com/us/ray-ban/rb3016-8053672226966",
                     "description": null
                 },
                 {
@@ -271,11 +246,6 @@
                     "description": null
                 },
                 {
-                    "title": "Ray-Ban RB3025 AVIATOR ...",
-                    "url": "https://www.sunglasshut.com/us/ray-ban/rb3025-805289004783",
-                    "description": null
-                },
-                {
                     "title": "Ray-Ban RB3447 ROUND ...",
                     "url": "https://www.sunglasshut.com/us/ray-ban/rb3447-805289439899",
                     "description": null
@@ -283,6 +253,11 @@
                 {
                     "title": "Ray-Ban RB2140 Mickey ...",
                     "url": "https://www.sunglasshut.com/us/ray-ban/rb2140-8056597034296",
+                    "description": null
+                },
+                {
+                    "title": "Ray-Ban RB1971 SQUARE ...",
+                    "url": "https://www.sunglasshut.com/us/ray-ban/rb1971-8056597054041",
                     "description": null
                 }
             ],
@@ -305,24 +280,22 @@
             "productInfo": {}
         },
         {
-            "title": "Ray-Ban Sunglasses & Glasses | 50% Off Lens + Free Shipping",
-            "url": "https://m.glassesusa.com/ray-ban",
-            "displayedUrl": "GlassesUSA › ray-ban",
-            "description": "Save big on all Ray-Ban®️ styles like Aviator, Wayfarer or Clubmaster. ... BUY 1 GET 1 FREE CODE: BOGOFREE. ...",
-            "siteLinks": [],
-            "productInfo": {}
-        },
-        {
             "title": "Ray-Ban Glasses & Sunglasses with Prescription | LensCrafters",
             "url": "https://www.lenscrafters.com/lc-us/brands/ray-ban",
             "displayedUrl": "LensCrafters › Brands",
             "description": "Head out in style with a pair of Ray-Ban sunglasses or prescription glasses. LensCrafters will help you look & see ...",
             "siteLinks": [],
             "productInfo": {}
+        },
+        {
+            "title": "Ray-Ban Sunglasses | Best Price Guarantee | SmartBuyGlasses USA",
+            "url": "https://www.smartbuyglasses.com/designer-sunglasses/Ray-Ban/",
+            "displayedUrl": "SmartBuyGlasses › Sunglasses",
+            "description": "Products 1 - 60 of 1626 · Enjoy a wide range and free shipping on all orders. Buy Ray-Ban Sunglasses now!",
+            "siteLinks": [],
+            "productInfo": {}
         }
     ],
-    "customData": {
-        "pageTitle": "Buy Ray Ban - Google Search"
-    },
-    "htmlSnapshotUrl": "file:///Users/AndreyBykov/Documents/_Work/Apify/publicActors/actor-google-search-scraper/apify_storage/key_value_stores/default/5PPUmb08XbxR2so.html"
+    "customData": null,
+    "htmlSnapshotUrl": "file:///Users/AndreyBykov/Documents/_Work/Apify/publicActors/actor-google-search-scraper/apify_storage/key_value_stores/default/lt3iBGXR1DjtIcC.html"
 }
