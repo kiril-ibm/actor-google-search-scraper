@@ -68,11 +68,14 @@ exports.extractPaidResults = ($) => {
                 });
             });
 
+        const $heading = $(el).find('div[role=heading]');
+        const $url = $heading.parent('a');
+
         ads.push({
-            title: $(el).find('div[role=heading]').text(),
-            url: $(el).find('div[role=heading]').parent('a').attr('href'),
-            displayedUrl: $(el).find('w-visurl > div > span').eq(1).text(),
-            description: $(el).find('> div > div > div > div > div > span').text(),
+            title: $heading.text(),
+            url: $url.attr('href'),
+            displayedUrl: $url.find('> div > span').eq(1).text(),
+            description: $(el).find('> div > div > div > div > div').eq(1).text(),
             siteLinks,
         });
     });

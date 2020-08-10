@@ -218,27 +218,37 @@ exports.extractPaidResults = ($) => {
     if (layout === 'desktop-like') {
         $('.ads-fr').each((index, el) => {
             const siteLinks = [];
-            $(el).find('a').not('[data-rw]').not('.aob-link')
+            $(el).find('a')
+                .not('[data-rw]')
+                .not('[ping]')
+                .not('[data-is-ad]')
+                .not('.aob-link')
                 .each((i, link) => {
-                    siteLinks.push({
-                        title: $(link).text(),
-                        url: $(link).attr('href'),
-                        description: null,
-                    });
+                    if ($(link).attr('href')) {
+                        siteLinks.push({
+                            title: $(link).text(),
+                            url: $(link).attr('href'),
+                            description: null,
+                        });
+                    }
                 });
 
+            const $heading = $(el).find('div[role=heading]');
+            const $url = $heading.parent('a');
+
             ads.push({
-                title: $(el).find('div[role=heading]').text(),
-                url: $(el).find('div[role=heading]').parent('a').attr('href'),
-                displayedUrl: $(el).find('w-visurl > div > span').eq(1).text(),
-                description: $(el).find('> div > div > div > div > div > span').text(),
+                title: $heading.find('span').length > 0 ? [...$heading.find('span')].map(s => $(s).text()).join(' ') : $heading.text(),
+                url: $url.attr('href'),
+                displayedUrl: $url.next('div').find('> span').eq(1).text()
+                    || $url.find('> div').eq(0).find('> div > span').eq(1).text(),
+                description: $url.parent().next('div').find('span').eq(0).text(),
                 siteLinks,
             });
         });
     }
 
     if (layout === 'mobile') {
-        $('#main > div').filter((i, el) => $(el).find('a[href*="aclk"]').length > 0)
+        $('#main > div').filter((i, el) => $(el).find('div[role=heading]').length > 0)
             .each((i, el) => {
                 const $el = $(el);
 
@@ -251,10 +261,12 @@ exports.extractPaidResults = ($) => {
                     });
                 });
 
+                const $heading = $el.find('[role="heading"]');
+
                 ads.push({
-                    title: $el.find('[role="heading"]').text().trim(),
+                    title: $heading.text(),
                     url: $el.find('a[href*="aclk"]').attr('href'),
-                    displayedUrl: $(el).find('w-visurl > div > span').eq(1).text(),
+                    displayedUrl: $heading.next('div').find('> span > span').text(),
                     description: $el.find('> div > div > div > span').text(),
                     siteLinks,
                 });
@@ -298,7 +310,21 @@ exports.extractRelatedQueries = ($, hostname) => {
     const layout = determineLayout($);
 
     if (layout === 'desktop-like') {
-        $('div[data-hveid="CA8QAA"] a').each((index, el) => {
+        $('#extrares').find('h2').nextAll('a').each((index, el) => {
+            related.push({
+                title: $(el).text().trim(),
+                url: ensureItsAbsoluteUrl($(el).attr('href'), hostname),
+            });
+        });
+        // another type of related searches
+        $('#bres span a').each((index, el) => {
+            related.push({
+                title: $(el).text().trim(),
+                url: ensureItsAbsoluteUrl($(el).attr('href'), hostname),
+            });
+        });
+        // another type of related searches
+        $('#brs p a').each((index, el) => {
             related.push({
                 title: $(el).text().trim(),
                 url: ensureItsAbsoluteUrl($(el).attr('href'), hostname),
