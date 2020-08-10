@@ -1,53 +1,108 @@
 {
-    "searchQuery": {
-        "term": "Buy Ray Ban",
-        "device": "MOBILE",
-        "page": 1,
-        "type": "SEARCH",
-        "domain": "google.com",
-        "countryCode": "US",
-        "languageCode": null,
-        "locationUule": null,
-        "resultsPerPage": 10
-    },
-    "url": "http://www.google.com/search?q=Buy%20Ray%20Ban&xmobile=1",
+    "url": "http://www.google.com/search?q=buy%20ray%20ban&xmobile=1&xprovider=X",
     "hasNextPage": true,
     "resultsTotal": "N/A",
     "relatedQueries": [
         {
-            "title": "ray-ban sale",
-            "url": "https://google.com/search?q=ray-ban+sale&sa=X&ved=2ahUKEwiJmOCawYbrAhWylHIEHXwBBcwQ1QJ6BAgAEAE"
-        },
-        {
             "title": "ray bans",
-            "url": "https://google.com/search?q=ray+bans&sa=X&ved=2ahUKEwiJmOCawYbrAhWylHIEHXwBBcwQ1QJ6BAgAEAI"
+            "url": "https://www.google.com/search?q=ray+bans&sa=X&ved=2ahUKEwjgzZ-FmpHrAhXthOAKHabpAS4Q1QJ6BAgAEAE"
         },
         {
-            "title": "ray-ban sunglasses men",
-            "url": "https://google.com/search?q=ray-ban+sunglasses+men&sa=X&ved=2ahUKEwiJmOCawYbrAhWylHIEHXwBBcwQ1QJ6BAgAEAM"
-        },
-        {
-            "title": "ray-ban wayfarer",
-            "url": "https://google.com/search?q=ray-ban+wayfarer&sa=X&ved=2ahUKEwiJmOCawYbrAhWylHIEHXwBBcwQ1QJ6BAgAEAQ"
-        },
-        {
-            "title": "ray-ban virtual try on",
-            "url": "https://google.com/search?q=ray-ban+virtual+try+on&sa=X&ved=2ahUKEwiJmOCawYbrAhWylHIEHXwBBcwQ1QJ6BAgAEAU"
-        },
-        {
-            "title": "ray-ban aviators",
-            "url": "https://google.com/search?q=ray-ban+aviators&sa=X&ved=2ahUKEwiJmOCawYbrAhWylHIEHXwBBcwQ1QJ6BAgAEAY"
-        },
-        {
-            "title": "ray-ban sunglasses sale",
-            "url": "https://google.com/search?q=ray-ban+sunglasses+sale&sa=X&ved=2ahUKEwiJmOCawYbrAhWylHIEHXwBBcwQ1QJ6BAgAEAc"
+            "title": "ray-ban sunglasses",
+            "url": "https://www.google.com/search?q=ray-ban+sunglasses&sa=X&ved=2ahUKEwjgzZ-FmpHrAhXthOAKHabpAS4Q1QJ6BAgAEAI"
         },
         {
             "title": "ray-ban outlet",
-            "url": "https://google.com/search?q=ray-ban+outlet&sa=X&ved=2ahUKEwiJmOCawYbrAhWylHIEHXwBBcwQ1QJ6BAgAEAg"
+            "url": "https://www.google.com/search?q=ray-ban+outlet&sa=X&ved=2ahUKEwjgzZ-FmpHrAhXthOAKHabpAS4Q1QJ6BAgAEAM"
+        },
+        {
+            "title": "ray-ban sale",
+            "url": "https://www.google.com/search?q=ray-ban+sale&sa=X&ved=2ahUKEwjgzZ-FmpHrAhXthOAKHabpAS4Q1QJ6BAgAEAQ"
+        },
+        {
+            "title": "ray-ban promo code",
+            "url": "https://www.google.com/search?q=ray-ban+promo+code&sa=X&ved=2ahUKEwjgzZ-FmpHrAhXthOAKHabpAS4Q1QJ6BAgAEAU"
+        },
+        {
+            "title": "ray-ban wayfarer",
+            "url": "https://www.google.com/search?q=ray-ban+wayfarer&sa=X&ved=2ahUKEwjgzZ-FmpHrAhXthOAKHabpAS4Q1QJ6BAgAEAY"
+        },
+        {
+            "title": "ray-ban aviators",
+            "url": "https://www.google.com/search?q=ray-ban+aviators&sa=X&ved=2ahUKEwjgzZ-FmpHrAhXthOAKHabpAS4Q1QJ6BAgAEAc"
+        },
+        {
+            "title": "ray-ban sunglasses outlet",
+            "url": "https://www.google.com/search?q=ray-ban+sunglasses+outlet&sa=X&ved=2ahUKEwjgzZ-FmpHrAhXthOAKHabpAS4Q1QJ6BAgAEAg"
         }
     ],
-    "paidResults": [],
+    "paidResults": [
+        {
+            "title": "Ray-Ban® Up to 50% Off - Free Shipping & Returns",
+            "url": "http://www.google.com/aclk?sa=l&ai=DChcSEwjTwamFmpHrAhUXpLMKHTt2DU0YABABGgJxbg&sig=AOD64_2brE6c9-CtrTZobJFGasLeVaGJWw&ved=2ahUKEwjgzZ-FmpHrAhXthOAKHabpAS4Q0Qx6BAgVEAE&adurl=",
+            "displayedUrl": "www.ray-ban.com/",
+            "description": "Shop Now & Enjoy Up to 50% Off Selected Styles. Free Shipping on All Orders. Shop Your Favorite Sunglasess Today! Customize online.",
+            "siteLinks": [
+                {
+                    "title": "Men's Sunglasses",
+                    "url": "http://www.google.com/aclk?sa=l&ai=DChcSEwjTwamFmpHrAhUXpLMKHTt2DU0YABAHGgJxbg&sig=AOD64_2SxlXTkxVOrxa3-cSzzoEZCS-Vug&ved=2ahUKEwjgzZ-FmpHrAhXthOAKHabpAS4QwgUoAHoECBUQAw&adurl=",
+                    "description": null
+                },
+                {
+                    "title": "Women's Sunglasses",
+                    "url": "http://www.google.com/aclk?sa=l&ai=DChcSEwjTwamFmpHrAhUXpLMKHTt2DU0YABAKGgJxbg&sig=AOD64_3vJILqYfo7UwuxyixobIYjct0O4g&ved=2ahUKEwjgzZ-FmpHrAhXthOAKHabpAS4QwgUoAXoECBUQBA&adurl=",
+                    "description": null
+                },
+                {
+                    "title": "Official Sales",
+                    "url": "http://www.google.com/aclk?sa=l&ai=DChcSEwjTwamFmpHrAhUXpLMKHTt2DU0YABALGgJxbg&sig=AOD64_039fmE_xqGc4loES42xUrjEIe5_g&ved=2ahUKEwjgzZ-FmpHrAhXthOAKHabpAS4QwgUoAnoECBUQBQ&adurl=",
+                    "description": null
+                }
+            ]
+        },
+        {
+            "title": "Ray Ban Sunglasses - 50% Off Selected Style",
+            "url": "http://www.google.com/aclk?sa=l&ai=DChcSEwjTwamFmpHrAhUXpLMKHTt2DU0YABACGgJxbg&sig=AOD64_0xdwnquTjqrwxRSVGPx605QTxYvQ&ved=2ahUKEwjgzZ-FmpHrAhXthOAKHabpAS4Q0Qx6BAgXEAE&adurl=",
+            "displayedUrl": "www.sunglasshut.com/",
+            "description": "Discover The Latest Designer Sunglasses At Sunglass Hut®. Shop Today. Enjoy Free Shipping...",
+            "siteLinks": []
+        },
+        {
+            "title": "Ray-Ban | Nordstrom Rack",
+            "url": "http://www.google.com/aclk?sa=l&ai=DChcSEwjTwamFmpHrAhUXpLMKHTt2DU0YABAAGgJxbg&sig=AOD64_0AUUgSDz5HRqTWq-8hwFLfB35d3g&ved=2ahUKEwjgzZ-FmpHrAhXthOAKHabpAS4Q0Qx6BAgYEAE&adurl=",
+            "displayedUrl": "www.nordstromrack.com/",
+            "description": "Shop All Your Favorite Designers, All In One Place. Save Up To 55% Off.",
+            "siteLinks": []
+        },
+        {
+            "title": "Ray-Ban Sunglasses & Glasses | 50% Off Lens + Free Shipping",
+            "url": "http://www.google.com/aclk?sa=l&ai=DChcSEwjTwamFmpHrAhUXpLMKHTt2DU0YABADGgJxbg&sig=AOD64_1aT9D04kTja8d6RZNXSczjRIkT8A&ved=2ahUKEwjgzZ-FmpHrAhXthOAKHabpAS4Q0Qx6BAgWEAE&adurl=",
+            "displayedUrl": "www.glassesusa.com/",
+            "description": "Buy Glasses Online At Up to 70% Off Retail Prices. Order Your Next Pair And Save. Ray-Ban Rx Glasses.",
+            "siteLinks": []
+        },
+        {
+            "title": "Ray-Ban Sunglasses Sale - Shop Glasses with Free Lenses",
+            "url": "http://www.google.com/aclk?sa=l&ai=DChcSEwjTwamFmpHrAhUXpLMKHTt2DU0YABAGGgJxbg&sig=AOD64_3BtZF5f1IwBQzfpBWK1Ru2CW35JQ&ved=2ahUKEwjgzZ-FmpHrAhXthOAKHabpAS4Q0Qx6BAgaEAE&adurl=",
+            "displayedUrl": "www.smartbuyglasses.com/",
+            "description": "Shop Now and Get Free High Quality Lenses with your purchase! Easy Returns & Fast Shipping. Sunglasses for less. Unbeatable selection of Glasses with Free Lenses & Fast Shipping. ",
+            "siteLinks": []
+        },
+        {
+            "title": "Ray-Bans Sunglasses For Less - Save Up To 70% Off On Poshmark",
+            "url": "http://www.google.com/aclk?sa=l&ai=DChcSEwjTwamFmpHrAhUXpLMKHTt2DU0YABAFGgJxbg&sig=AOD64_0nYPKBxfcFT3EzjRWvNla4SSaC9Q&ved=2ahUKEwjgzZ-FmpHrAhXthOAKHabpAS4Q0Qx6BAgZEAE&adurl=",
+            "displayedUrl": "www.poshmark.com/",
+            "description": "Shop Brand New Ray-Ban Sunglasses Up To 70% Off Retail. Authenticity Guaranteed! Posh Protect. Fashion at 70% off. 2-3 day priority shipping. Styles: Aviator, Wayfarer, Round, Clubmaster, Hexagonal, Round Double Bridge, Justin, Erika.",
+            "siteLinks": []
+        },
+        {
+            "title": "Ray-Ban Sunglasses - Jomashop",
+            "url": "http://www.google.com/aclk?sa=l&ai=DChcSEwjTwamFmpHrAhUXpLMKHTt2DU0YABAEGgJxbg&sig=AOD64_0qZvng8-R5-atsio5Oij6UrfxmgQ&ved=2ahUKEwjgzZ-FmpHrAhXthOAKHabpAS4Q0Qx6BAgbEAE&adurl=",
+            "displayedUrl": "www.jomashop.com/",
+            "description": "Shop Low Prices on a Huge Selection of Brands. Fast and Free Shipping. Save Up To 65% On Authentic Luxury! Watches, Sunglasses, Handbags, And More. Mobile-Optimized Site.",
+            "siteLinks": []
+        }
+    ],
     "paidProducts": [],
     "organicResults": [
         {
@@ -93,6 +148,13 @@
             "siteLinks": []
         },
         {
+            "title": "Ray-Ban - Amazon.com",
+            "url": "https://www.amazon.com/stores/Ray-Ban/Ray-Ban/page/0FFD63F6-6B0E-4DEE-99A2-CAE5788EF46B",
+            "displayedUrl": "https://www.amazon.com › stores › page",
+            "description": "Ray-Ban brand store on Amazon.",
+            "siteLinks": []
+        },
+        {
             "title": "Ray-Ban Sunglasses - Mens & Womens Ray-Bans - Macy's",
             "url": "https://www.macys.com/shop/handbags-accessories/ray-ban-shop?id=78258",
             "displayedUrl": "https://www.macys.com › shop › ray-ban...",
@@ -109,8 +171,8 @@
                     "description": null
                 },
                 {
-                    "title": "Sales & Discounts Ray-Ban ...",
-                    "url": "https://www.macys.com/shop/handbags-accessories/ray-ban-shop/Special_offers/Sales%20%26%20Discounts?id=78258",
+                    "title": "Clearance/Closeout Ray-Ban ...",
+                    "url": "https://www.macys.com/shop/handbags-accessories/ray-ban-shop/Special_offers/Clearance%2FCloseout?id=78258",
                     "description": null
                 },
                 {
@@ -121,26 +183,19 @@
             ]
         },
         {
-            "title": "Ray-Ban: Ray-Ban - Amazon.com",
-            "url": "https://www.amazon.com/stores/Ray-Ban/Ray-Ban/page/0FFD63F6-6B0E-4DEE-99A2-CAE5788EF46B",
-            "displayedUrl": "https://www.amazon.com › stores › page",
-            "description": "Ray-Ban brand store on Amazon.",
-            "siteLinks": []
-        },
-        {
             "title": "Ray-Ban Sunglasses for Men & Women | Sunglass Hut®",
             "url": "https://www.sunglasshut.com/us/ray-ban",
             "displayedUrl": "https://www.sunglasshut.com › ray-ban",
             "description": "Browse the Sunglass Hut Online selection of Ray-Ban sunglasses, including styles like Wayfarer, Aviator and ...",
             "siteLinks": [
                 {
-                    "title": "Ray-Ban RB3016 ...",
-                    "url": "https://www.sunglasshut.com/us/ray-ban/rb3016-805289653653",
+                    "title": "Ray-Ban RB3548N ...",
+                    "url": "https://www.sunglasshut.com/us/ray-ban/rb3548n-8053672611649",
                     "description": null
                 },
                 {
-                    "title": "Ray-Ban RB3548N ...",
-                    "url": "https://www.sunglasshut.com/us/ray-ban/rb3548n-8053672611649",
+                    "title": "Ray-Ban RB3016 ...",
+                    "url": "https://www.sunglasshut.com/us/ray-ban/rb3016-8053672226966",
                     "description": null
                 },
                 {
@@ -163,17 +218,10 @@
             "siteLinks": []
         },
         {
-            "title": "Ray-Ban Sunglasses for Men & Women | Best Price Guarantee at ...",
+            "title": "Ray-Ban Sunglasses for Men & Women | Best Price Guarantee ...",
             "url": "https://www.dickssportinggoods.com/f/ray-ban-sunglasses-x-brand-202190",
             "displayedUrl": "https://www.dickssportinggoods.com › ra...",
             "description": "Shop Ran-Ban sunglasses deals at DICK'S Sporting Goods. Choose from iconic styles like Aviator and Wayfarer.",
-            "siteLinks": []
-        },
-        {
-            "title": "Ray-Ban Sunglasses & Glasses | 50% Off Lens + Free Shipping",
-            "url": "https://m.glassesusa.com/ray-ban",
-            "displayedUrl": "https://m.glassesusa.com › ray-ban",
-            "description": "Save big on all Ray-Ban®️ styles like Aviator, Wayfarer or Clubmaster. ... BUY 1​GET 1 FREE CODE: BOGOFREE. │.",
             "siteLinks": []
         },
         {
@@ -182,10 +230,15 @@
             "displayedUrl": "https://www.lenscrafters.com › Brands",
             "description": "Head out in style with a pair of Ray-Ban sunglasses or prescription glasses. LensCrafters will help you look & see your ...",
             "siteLinks": []
+        },
+        {
+            "title": "Ray-Ban Sunglasses | Best Price Guarantee ...",
+            "url": "https://www.smartbuyglasses.com/designer-sunglasses/Ray-Ban/",
+            "displayedUrl": "https://www.smartbuyglasses.com › Ray-...",
+            "description": "Enjoy a wide range and free shipping on all orders. Buy Ray-Ban Sunglasses now!",
+            "siteLinks": []
         }
     ],
-    "customData": {
-        "pageTitle": "Buy Ray Ban - Google Search"
-    },
-    "htmlSnapshotUrl": "file:///Users/AndreyBykov/Documents/_Work/Apify/publicActors/actor-google-search-scraper/apify_storage/key_value_stores/default/5PPUmb08XbxR2so.html"
+    "customData": null,
+    "htmlSnapshotUrl": "file:///Users/AndreyBykov/Documents/_Work/Apify/publicActors/actor-google-search-scraper/apify_storage/key_value_stores/default/uY7Ws2kRukUGfDo.html"
 }
