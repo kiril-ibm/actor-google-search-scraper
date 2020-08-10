@@ -1,4 +1,5 @@
 const { ensureItsAbsoluteUrl } = require('./ensure_absolute_url');
+const { extractPeopleAlsoAsk } = require('./extractor_tools');
 
 /**
  * there are 3 possible mobile layouts, we need to find out
@@ -325,4 +326,8 @@ exports.extractRelatedQueries = ($, hostname) => {
     }
 
     return related;
+};
+
+exports.extractPeopleAlsoAsk = ($) => {
+    return extractPeopleAlsoAsk($, false);
 };

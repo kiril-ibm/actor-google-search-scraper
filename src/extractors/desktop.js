@@ -1,4 +1,5 @@
 const { ensureItsAbsoluteUrl } = require('./ensure_absolute_url');
+const { extractPeopleAlsoAsk } = require('./extractor_tools');
 
 exports.extractOrganicResults = ($) => {
     const searchResults = [];
@@ -124,4 +125,8 @@ exports.extractRelatedQueries = ($, hostname) => {
     });
 
     return related;
+};
+
+exports.extractPeopleAlsoAsk = ($) => {
+    return extractPeopleAlsoAsk($, false);
 };

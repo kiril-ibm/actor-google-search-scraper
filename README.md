@@ -8,6 +8,8 @@ Specifically, the actor extracts the following data from each Google Search resu
 - Ads
 - Product ads
 - Related queries
+- People also ask
+- Price, reviews rating and count (under `productInfo` field if available)
 - Additional custom attributes
 
 Note that the actor doesn't support special types of Google searches,

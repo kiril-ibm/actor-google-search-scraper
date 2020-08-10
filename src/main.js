@@ -90,6 +90,7 @@ Apify.main(async () => {
                 paidResults: extractors.extractPaidResults($),
                 paidProducts: extractors.extractPaidProducts($),
                 organicResults: extractors.extractOrganicResults($, host),
+                peopleAlsoAsk: extractors.extractPeopleAlsoAsk($),
                 customData: customDataFunction
                     ? await executeCustomDataFunction(customDataFunction, { input, $, request, response, html: body, Apify })
                     : null,
