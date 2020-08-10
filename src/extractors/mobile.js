@@ -237,7 +237,7 @@ exports.extractPaidResults = ($) => {
             const $url = $heading.parent('a');
 
             ads.push({
-                title: $heading.find('span').length > 0 ? [...$heading.find('span')].map(s => $(s).text()).join(' ') : $heading.text(),
+                title: $heading.find('span').length ? $heading.find('span').toArray().map(s => $(s).text()).join(' ') : $heading.text(),
                 url: $url.attr('href'),
                 displayedUrl: $url.next('div').find('> span').eq(1).text()
                     || $url.find('> div').eq(0).find('> div > span').eq(1).text(),
