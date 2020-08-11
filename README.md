@@ -86,7 +86,7 @@ where `[DATASET_ID]` is the ID of the dataset and `[FORMAT]`
 can be `csv`, `html`, `xlsx`, `xml`, `rss` or `json`.
 
 For each Google Search results page, the dataset will contain a single record,
-which in JSON format looks as follows:
+which in JSON format looks as follows. Keep in mind that some fields have example values:
 
 ```json
 {
@@ -148,16 +148,31 @@ which in JSON format looks as follows:
       "url": "https://www.booking.com/city/cz/prague.html",
       "displayedUrl": "https://www.booking.com › Czech Republic",
       "description": "Great savings on hotels in Prague, Czech Republic online. Good availability and great rates. Read hotel reviews and choose the best hotel deal for your stay.",
-      "siteLinks": []
+      "siteLinks": [],
+      "productInfo": {
+          "price": "$123",
+          "rating": 4.7,
+          "numberOfReviews": 4510
+      },
     },
     {
       "title": "The 30 best hotels & places to stay in Prague, Czech Republic ...",
       "url": "https://www.booking.com/city/cz/prague.en-gb.html",
       "displayedUrl": "https://www.booking.com › Czech Republic",
       "description": "Great savings on hotels in Prague, Czech Republic online. Good availability and great rates. Read hotel reviews and choose the best hotel deal for your stay.",
-      "siteLinks": []
+      "siteLinks": [],
+      "productInfo": {},
     },
     ...
+  ],
+  "peopleAlsoAsk": [
+    {
+      "question": "What is the name of the best hotel in the world?",
+      "answer": "Burj Al Arab Jumeirah, Dubai. Arguably Dubai's most iconic hotel, the Burj Al Arab rises above the Persian Gulf on its own man-made island like a giant sail. Everything here is over-the-top, from the gilded furnishings in its guest rooms to the house fleet of Rolls-Royces.",
+      "url": "https://www.travelandleisure.com/worlds-best/hotels-top-100-overall",
+      "title": "Best 100 Hotels: World's Best Hotels 2020 | Travel + Leisure | Travel ...",
+      "date": "Jul 8, 2020"
+    }
   ],
   "customData": {
     "pageTitle": "Hotels in Prague - Google Search"

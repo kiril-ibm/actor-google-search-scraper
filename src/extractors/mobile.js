@@ -355,5 +355,5 @@ exports.extractRelatedQueries = ($, hostname) => {
 };
 
 exports.extractPeopleAlsoAsk = ($) => {
-    return extractPeopleAlsoAsk($, false);
+    return extractPeopleAlsoAsk($);
 };
