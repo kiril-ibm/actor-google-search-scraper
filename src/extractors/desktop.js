@@ -100,12 +100,18 @@ exports.extractPaidResults = ($) => {
         const $heading = $(el).find('div[role=heading]');
         const $url = $heading.parent('a');
 
+        // Keeping old description selector for now as it might work on different layouts, remove later
+        const $newDescription = $(el).find('.MUxGbd.yDYNvb.lyLwlc > span');
+        const $oldDescription = $(el).find('> div > div > div > div > div').eq(1);
+
+        const $description = $newDescription.length > 0 ? $newDescription : $oldDescription;
+
         ads.push({
             title: $heading.text(),
             url: $url.attr('href'),
             // The .eq(2) fixes getting "Ad." instead of the displayed URL.
             displayedUrl: $url.find('> div > span').eq(2).text(),
-            description: $(el).find('> div > div > div > div > div').eq(1).text(),
+            description: $description.text(),
             siteLinks,
         });
     });

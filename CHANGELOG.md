@@ -1,3 +1,8 @@
+2020-10-01
+- Hotfix after Google changed the page layout for desktop
+- Fixed `description` for paid results
+- Fixed `description`, `url` and `siteLinks` for organic results
+
 2020-07-15 (beta)
 - Fixed site links being present in a title of paid results
 - Better explanation about max limit of results
