@@ -96,7 +96,7 @@ can be `csv`, `html`, `xlsx`, `xml`, `rss` or `json`.
 For each Google Search results page, the dataset will contain a single record,
 which in JSON format looks as follows. Keep in mind that some fields have example values:
 
-```jsonc
+```json
 {
   "searchQuery": {
     "term": "Hotels in Prague",
@@ -201,7 +201,7 @@ https://api.apify.com/v2/datasets/[DATASET_ID]/items?format=[FORMAT]&fields=sear
 
 The API will return a result like this (in JSON format):
 
-```jsonc
+```json
 [
   {
     "searchQuery": {
