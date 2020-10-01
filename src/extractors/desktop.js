@@ -10,13 +10,32 @@ exports.extractOrganicResults = ($) => {
         $(el).find('div.action-menu').remove();
 
         const siteLinks = [];
-        $(el).find('ul li').each((i, siteLinkEl) => {
-            siteLinks.push({
-                title: $(siteLinkEl).find('h3').text(),
-                url: $(siteLinkEl).find('h3 a').attr('href'),
-                description: $(siteLinkEl).find('div').text(),
+
+        const $oldSiteLinksSel = $(el).find('ul li');
+        const $newSiteLinksSel = $(el).find('.St3GK a');
+        if ($oldSiteLinksSel.length > 0) {
+            $oldSiteLinksSel.each((i, siteLinkEl) => {
+                siteLinks.push({
+                    title: $(siteLinkEl).find('h3').text(),
+                    url: $(siteLinkEl).find('h3 a').attr('href'),
+                    description: $(siteLinkEl).find('div').text(),
+                });
             });
-        });
+        } else {
+            $newSiteLinksSel.each((i, siteLinkEl) => {
+                siteLinks.push({
+                    title: $(siteLinkEl).text(),
+                    url: $(siteLinkEl).attr('href'),
+                    // Seems Google removed decription in the new layout, let's keep it for now though
+                    description: $(siteLinkEl).parent('div').parent('h3').parent('div')
+                        .find('> div')
+                        .toArray()
+                        .map(d => $(d).text())
+                        .join(' ') || null,
+                });
+            });
+        }
+
 
         const productInfo = {};
         const productInfoText = $(el).find('.dhIWPd').text();
@@ -62,8 +81,6 @@ exports.extractPaidResults = ($) => {
         : oldAds;
 
     $ads.each((index, el) => {
-        // I have no idea if the siteLinks still work.
-        // Haven't tested those.
         const siteLinks = [];
         $(el).find('w-ad-seller-rating').remove();
         $(el).find('a').not('[data-pcu]').not('[ping]')
@@ -71,6 +88,7 @@ exports.extractPaidResults = ($) => {
                 siteLinks.push({
                     title: $(siteLinkEl).text(),
                     url: $(siteLinkEl).attr('href'),
+                    // Seems Google removed decription in the new layout, let's keep it for now though
                     description: $(siteLinkEl).parent('div').parent('h3').parent('div')
                         .find('> div')
                         .toArray()
