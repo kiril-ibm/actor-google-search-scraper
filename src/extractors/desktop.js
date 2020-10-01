@@ -38,9 +38,9 @@ exports.extractOrganicResults = ($) => {
 
         const searchResult = {
             title: $(el).find('h3').eq(0).text(),
-            url: $(el).find('.r a').attr('href'),
+            url: $(el).find('a').attr('href'),
             displayedUrl: $(el).find('cite').eq(0).text(),
-            description: $(el).find('.s .st').text(),
+            description: $(el).find('.IsZvec').text(),
             siteLinks,
             productInfo,
         };
