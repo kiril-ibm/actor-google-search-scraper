@@ -52,8 +52,18 @@ exports.extractOrganicResults = ($) => {
 
 exports.extractPaidResults = ($) => {
     const ads = [];
+    // Keeping the old selector just in case.
+    const oldAds = $('.ads-fr');
+    const newAds = $('#tads > div');
 
-    $('.ads-fr').each((index, el) => {
+    // Use whatever selector has more results.
+    const $ads = newAds.length >= oldAds.length
+        ? newAds
+        : oldAds;
+
+    $ads.each((index, el) => {
+        // I have no idea if the siteLinks still work.
+        // Haven't tested those.
         const siteLinks = [];
         $(el).find('w-ad-seller-rating').remove();
         $(el).find('a').not('[data-pcu]').not('[ping]')
@@ -75,7 +85,8 @@ exports.extractPaidResults = ($) => {
         ads.push({
             title: $heading.text(),
             url: $url.attr('href'),
-            displayedUrl: $url.find('> div > span').eq(1).text(),
+            // The .eq(2) fixes getting "Ad." instead of the displayed URL.
+            displayedUrl: $url.find('> div > span').eq(2).text(),
             description: $(el).find('> div > div > div > div > div').eq(1).text(),
             siteLinks,
         });
