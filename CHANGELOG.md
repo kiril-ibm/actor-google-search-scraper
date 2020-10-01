@@ -1,5 +1,6 @@
 2020-10-01
 - Hotfix after Google changed the page layout for desktop
+- Fixed main selector for paid results
 - Fixed `description` for paid results
 - Fixed `description`, `url` and `siteLinks` for organic results
 

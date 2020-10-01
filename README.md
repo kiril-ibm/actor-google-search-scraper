@@ -16,6 +16,14 @@ Note that the actor doesn't support special types of Google searches,
 such as [Google Shopping](https://www.google.com/shopping),
 [Google Images](https://www.google.com/imghp) or [Google News](https://news.google.com).
 
+- [Use cases](#use-cases)
+- [Input settings](#input-settings)
+- [Usage](#usage)
+- [Results](#results)
+    - [How to get one search result per row](#how-to-get-one-search-result-per-row)
+- [Tips and tricks](#tips-and-tricks)
+- [Changelog](#changelog)
+
 ## Use cases
 
 Google Search is the front door to the internet for most people around the world,
@@ -88,7 +96,7 @@ can be `csv`, `html`, `xlsx`, `xml`, `rss` or `json`.
 For each Google Search results page, the dataset will contain a single record,
 which in JSON format looks as follows. Keep in mind that some fields have example values:
 
-```json
+```jsonc
 {
   "searchQuery": {
     "term": "Hotels in Prague",
@@ -112,7 +120,7 @@ which in JSON format looks as follows. Keep in mind that some fields have exampl
       "title": "best hotels in prague old town",
       "url": "https://www.google.com/search?hl=en&gl=CZ&q=best+hotels+in+prague+old+town&sa=X&sqi=2&ved=2ahUKEwjem6jG9cTgAhVoxlQKHeE4BuwQ1QIoAXoECAoQAg"
     },
-    ...
+    // ...
   ],
   "paidResults": [
     {
@@ -139,7 +147,7 @@ which in JSON format looks as follows. Keep in mind that some fields have exampl
       "description": "Hotels In Prague Book Now! Collect 10 Nights and Get 1 Free. Budget Hotels. Guest Reviews. Last Minute Hotel Deals. Luxury Hotels. Exclusive Deals. Price Guarantee. Photos & Reviews. Travel Guides. Earn Free Hotel Nights. No Cancellation Fees. Types: Hotel, Apartment, Hostel.",
       "siteLinks": []
     },
-    ...
+    // ...
   ],
   "paidProducts": [],
   "organicResults": [
@@ -163,7 +171,7 @@ which in JSON format looks as follows. Keep in mind that some fields have exampl
       "siteLinks": [],
       "productInfo": {},
     },
-    ...
+    // ...
   ],
   "peopleAlsoAsk": [
     {
@@ -180,10 +188,10 @@ which in JSON format looks as follows. Keep in mind that some fields have exampl
 },
 ```
 
-### One organic search result per row
+### How to get one search result per row
 
 If you are only interested in organic Google Search results and
-want to get just one organic result per row on the output,
+want to get just one organic or paid result per row on the output,
 simply query the `fields=searchQuery,organicResults`
 and `unwind=organicResults` query parameters to the API endpoint URL:
 
@@ -193,13 +201,13 @@ https://api.apify.com/v2/datasets/[DATASET_ID]/items?format=[FORMAT]&fields=sear
 
 The API will return a result like this (in JSON format):
 
-```json
+```jsonc
 [
   {
     "searchQuery": {
       "term": "Restaurants in Prague",
       "page": 1,
-      ...
+      // ...
     },
     "title": "THE 10 BEST Restaurants in Prague 2019 - TripAdvisor",
     "url": "https://www.tripadvisor.com/Restaurants-g274707-Prague_Bohemia.html",
@@ -211,7 +219,7 @@ The API will return a result like this (in JSON format):
     "searchQuery": {
       "term": "Restaurants in Prague",
       "page": 1,
-      ...
+      // ...
     },
     "title": "The 11 Best Restaurants in Prague | Elite Traveler",
     "url": "https://www.elitetraveler.com/finest-dining/restaurant-guide/the-11-best-restaurants-in-prague",
@@ -219,7 +227,7 @@ The API will return a result like this (in JSON format):
     "description": "Jan 16, 2018 - With the regional fare certainly a highlight of dining in Prague, a great number of superb international eateries have touched down to become ...",
     "siteLinks": []
   },
-  ...
+  // ...
 ]
 ```
 
@@ -236,3 +244,6 @@ If you need to scrape a lot of results for a single query,
 then you can greatly improve the speed of the crawl by setting
 **Results per page** (`resultsPerPage`) to 100,
 instead of crawling 10 pages each with 10 results.
+
+## Changelog
+Google Search Results Scraper is under active development. We are introducing new features and fixing bugs. Very often we have to hotfix the extractor when Google changes the page layout. Check our [Changelog](https://github.com/apify/actor-google-search-scraper/blob/master/CHANGELOG.md) for recent updates.
