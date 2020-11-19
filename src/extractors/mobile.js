@@ -246,6 +246,38 @@ exports.extractPaidResults = ($) => {
                 siteLinks,
             });
         });
+
+        // Different desktop-like layout
+        if (ads.length === 0) {
+            $('#tads .uEierd').each((i, el) => {
+                const siteLinks = [];
+                // This is for vertical sie links
+                $(el).find('.BmP5tf .MUxGbd a[data-hveid]').each((i, el) => {
+                    siteLinks.push({
+                        title: $(el).text().trim(),
+                        url: $(el).attr('href'),
+                        description: null,
+                    })
+                })
+
+                // This is for horizontal site links
+                $(el).find('g-scrolling-carousel a').each((i, el) => {
+                    siteLinks.push({
+                        title: $(el).text().trim(),
+                        url: $(el).attr('href'),
+                        description: null,
+                    })
+                })
+
+                ads.push({
+                    title: $(el).find('[role="heading"]').text().trim(),
+                    url: $(el).find('a').attr('href'),
+                    displayedUrl: $(el).find('a .Zu0yb.UGIkD.qzEoUe').text().trim(),
+                    description: $(el).find('.BmP5tf .MUxGbd.yDYNvb.lEBKkf').text().trim(),
+                    siteLinks,
+                });
+            })
+        }
     }
 
     if (layout === 'mobile') {
