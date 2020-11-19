@@ -1,6 +1,6 @@
 # Google Extractors
 
-Parses detailed data from Google Search Page (SERP) HTML.
+Parses detailed data from Google Search Result Page (SERP) HTML.
 
 ## Features
 - Provides both desktop and mobile format parsers
@@ -23,17 +23,17 @@ const { extractResults } = require('@apify/google-extractors');
     const response = await httpRequest({
         url: 'https://www.google.com/search?q=web+scraping',
         headers: {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36'
-        }
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36',
+        },
     });
     const html = response.body;
 
     const data = extractResults(html, { mobile: false });
 
     // print organic results
-    console.dir(data.organicResults, { depth: null, colors: true })
+    console.dir(data.organicResults, { depth: null, colors: true });
     // print paid results
-    console.dir(data.paidResults, { depth: null, colors: true })
+    console.dir(data.paidResults, { depth: null, colors: true });
 })();
 ```
 
