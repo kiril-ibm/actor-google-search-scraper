@@ -1,3 +1,6 @@
+2020-11-19
+- Fixed new layout for mobile paid ads
+
 2020-10-01
 - Hotfix after Google changed the page layout for desktop
 - Fixed main selector for paid results
