@@ -122,14 +122,20 @@ exports.ensureAccessToSerpProxy = async () => {
     const userInfo = await Apify.client.users.getUser();
     // Has access to group and nonzero limit.
     const hasGroupAllowed = userInfo.proxy.groups.filter(group => group.name === REQUIRED_PROXY_GROUP).length > 0;
-    const hasNonzeroLimit = userInfo.limits.monthlyGoogleSerpRequests > 0;
+    const maxSerps = userInfo.limits
+        ? userInfo.limits.monthlyGoogleSerpRequests
+        : userInfo.plan.maxMonthlyProxySerps;
+    const hasNonzeroLimit = maxSerps > 0;
     if (!hasGroupAllowed || !hasNonzeroLimit) {
         Apify.utils.log.error(`You need access to ${REQUIRED_PROXY_GROUP}`
             + ' Apify Proxy group in order to use this actor. Please contact support@apify.com to get the access.');
         process.exit(1);
     }
     // Check that SERP limit was not reached.
-    if (userInfo.limits.isGoogleSerpBanned) {
+    const isEnabled = userInfo.limits
+        ? !userInfo.limits.isGoogleSerpBanned
+        : userInfo.plan.enabledPlatformFeatures.includes('PROXY_SERPS');
+    if (!isEnabled) {
         Apify.utils.log.error('You have reached your limit for the number of Google SERP queries on Apify Proxy.'
             + ' Please contact support@apify.com to increase the limit.');
         process.exit(1);
