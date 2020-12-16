@@ -25,7 +25,9 @@ Apify.main(async () => {
     } = input;
 
     // Check that user have access to SERP proxy.
-    await ensureAccessToSerpProxy();
+
+    // Commented this out until platform gets fixed
+    // await ensureAccessToSerpProxy();
     logAsciiArt();
 
     const proxyConfiguration = await Apify.createProxyConfiguration({
