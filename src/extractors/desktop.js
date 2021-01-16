@@ -4,7 +4,9 @@ const { extractPeopleAlsoAsk } = require('./extractor_tools');
 exports.extractOrganicResults = ($) => {
     const searchResults = [];
 
-    $('.g .rc').each((index, el) => {
+    // just a renamed class name, same layout
+    // second selector in 2021-01-15
+    $('.g .rc, .g .tF2Cxc').each((index, el) => {
         // HOTFIX: Google is A/B testing a new dropdown, which causes invalid results.
         // For now, just remove it.
         $(el).find('div.action-menu').remove();
@@ -12,7 +14,8 @@ exports.extractOrganicResults = ($) => {
         const siteLinks = [];
 
         const $oldSiteLinksSel = $(el).find('ul li');
-        const $newSiteLinksSel = $(el).find('.St3GK a');
+        // just a renamed class name, same layout, changed in 2021-01-15
+        const $newSiteLinksSel = $(el).find('.St3GK a, .yuRUbf a');
         if ($oldSiteLinksSel.length > 0) {
             $oldSiteLinksSel.each((i, siteLinkEl) => {
                 siteLinks.push({
