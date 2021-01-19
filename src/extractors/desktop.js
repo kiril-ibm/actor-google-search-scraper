@@ -4,28 +4,29 @@ const { extractPeopleAlsoAsk } = require('./extractor_tools');
 exports.extractOrganicResults = ($) => {
     const searchResults = [];
 
-    // just a renamed class name, same layout
-    // second selector in 2021-01-15
-    $('.g .rc, .g .tF2Cxc').each((index, el) => {
+    const resultSelectorOld = '.g .rc';
+    const resultSelector2021January = '.g .tF2Cxc';
+    $(`${resultSelectorOld}, ${resultSelector2021January}`).each((index, el) => {
         // HOTFIX: Google is A/B testing a new dropdown, which causes invalid results.
         // For now, just remove it.
         $(el).find('div.action-menu').remove();
 
         const siteLinks = [];
 
-        const $oldSiteLinksSel = $(el).find('ul li');
-        // just a renamed class name, same layout, changed in 2021-01-15
-        const $newSiteLinksSel = $(el).find('.St3GK a, .yuRUbf a');
-        if ($oldSiteLinksSel.length > 0) {
-            $oldSiteLinksSel.each((i, siteLinkEl) => {
+        const siteLinksSelOld = 'ul li';
+        const siteLinksSel2020 = '.St3GK a';
+        const siteLinksSel2021January = 'table';
+
+        if ($(el).find(siteLinksSelOld).length > 0) {
+            $(el).find(siteLinksSelOld).each((i, siteLinkEl) => {
                 siteLinks.push({
                     title: $(siteLinkEl).find('h3').text(),
                     url: $(siteLinkEl).find('h3 a').attr('href'),
                     description: $(siteLinkEl).find('div').text(),
                 });
             });
-        } else {
-            $newSiteLinksSel.each((i, siteLinkEl) => {
+        } else if ($(el).find(siteLinksSel2020).length > 0) {
+            $(el).find(siteLinksSel2020).each((i, siteLinkEl) => {
                 siteLinks.push({
                     title: $(siteLinkEl).text(),
                     url: $(siteLinkEl).attr('href'),
@@ -35,6 +36,14 @@ exports.extractOrganicResults = ($) => {
                         .toArray()
                         .map(d => $(d).text())
                         .join(' ') || null,
+                });
+            });
+        } else if ($(el).parent().siblings(siteLinksSel2021January).length > 0) {
+            $(el).parent().siblings(siteLinksSel2021January).find('td .sld').each((i, siteLinkEl) => {
+                siteLinks.push({
+                    title: $(siteLinkEl).find('a').text(),
+                    url: $(siteLinkEl).find('a').attr('href'),
+                    description: $(siteLinkEl).find('.s').text()
                 });
             });
         }
