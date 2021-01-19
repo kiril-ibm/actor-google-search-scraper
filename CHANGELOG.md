@@ -1,3 +1,7 @@
+2021-01-19
+- Fixed extractor to work on new Google layout
+- Added parsing emphasized text
+
 2020-11-19
 - Fixed new layout for mobile paid ads
 

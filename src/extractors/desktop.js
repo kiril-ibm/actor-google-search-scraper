@@ -39,7 +39,6 @@ exports.extractOrganicResults = ($) => {
             });
         }
 
-
         const productInfo = {};
         const productInfoText = $(el).find('.dhIWPd').text();
         if (productInfoText) {
@@ -63,6 +62,7 @@ exports.extractOrganicResults = ($) => {
             url: $(el).find('a').attr('href'),
             displayedUrl: $(el).find('cite').eq(0).text(),
             description: $(el).find('.IsZvec').text(),
+            emphasizedKeywords: $(el).find('.IsZvec em, .IsZvec b').map((i, el) => $(el).text().trim()).toArray(),
             siteLinks,
             productInfo,
         };
@@ -115,6 +115,7 @@ exports.extractPaidResults = ($) => {
             // The .eq(2) fixes getting "Ad." instead of the displayed URL.
             displayedUrl: $url.find('> div > span').eq(2).text(),
             description: $description.text(),
+            emphasizedKeywords: $description.find('em, b').map((i, el) => $(el).text().trim()).toArray(),
             siteLinks,
         });
     });

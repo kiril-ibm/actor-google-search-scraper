@@ -96,20 +96,11 @@ exports.extractOrganicResults = ($, hostname) => {
 
 
             searchResults.push({
-                title: $el
-                    .find('a div[role="heading"]')
-                    .text(),
-                url: $el
-                    .find('a')
-                    .first()
-                    .attr('href'),
-                displayedUrl: $el
-                    .find('span.qzEoUe')
-                    .first()
-                    .text(),
-                description: $el
-                    .find('div.yDYNvb')
-                    .text(),
+                title: $el.find('a div[role="heading"]').text(),
+                url: $el.find('a').first().attr('href'),
+                displayedUrl: $el.find('span.qzEoUe').first().text(),
+                description: $el.find('div.yDYNvb').text(),
+                emphasizedKeywords: $el.find('div.yDYNvb').find('em, b').map((i, el) => $(el).text().trim()).toArray(),
                 siteLinks,
                 productInfo,
             });
@@ -142,19 +133,18 @@ exports.extractOrganicResults = ($, hostname) => {
                     });
 
                 // product info not added because I don't know how to mock this (Lukas)
+                const $description = $el.find('.s3v9rd').first().find('> div > div > div')
+                    .clone()
+                    .children()
+                    .remove()
+                    .end();
 
                 searchResults.push({
                     title: $el.find('a > h3').eq(0).text().trim(),
                     url: getUrlFromParameter($el.find('a').first().attr('href'), hostname),
                     displayedUrl: $el.find('a > div').eq(0).text().trim(),
-                    description: $el.find('.s3v9rd').first().find('> div > div > div')
-                        .clone()
-                        .children()
-                        .remove()
-                        .end()
-                        .text()
-                        .replace(/ · /g, '')
-                        .trim(),
+                    description: $description.text().replace(/ · /g, '').trim(),
+                    emphasizedKeywords: $description.find('em, b').map((i, el) => $(el).text().trim()).toArray(),
                     siteLinks,
                 });
             });
@@ -203,6 +193,7 @@ exports.extractOrganicResults = ($, hostname) => {
                         .text()
                         .trim(),
                     description: $el.find('table span').first().text().trim(),
+                    emphasizedKeywords: $el.find('table span').first().find('em, b').map((i, el) => $(el).text().trim()).toArray(),
                     siteLinks,
                 });
             });
@@ -243,6 +234,8 @@ exports.extractPaidResults = ($) => {
                 displayedUrl: $url.next('div').find('> span').eq(1).text()
                     || $url.find('> div').eq(0).find('> div > span').eq(1).text(),
                 description: $url.parent().next('div').find('span').eq(0).text(),
+                emphasizedKeywords: $url.parent().next('div').find('span').eq(0).find('em, b')
+                    .map((i, el) => $(el).text().trim()).toArray(),
                 siteLinks,
             });
         });
@@ -274,6 +267,8 @@ exports.extractPaidResults = ($) => {
                     url: $(el).find('a').attr('href'),
                     displayedUrl: $(el).find('a .Zu0yb.UGIkD.qzEoUe').text().trim(),
                     description: $(el).find('.BmP5tf .MUxGbd.yDYNvb.lEBKkf').text().trim(),
+                    emphasizedKeywords: $(el).find('.BmP5tf .MUxGbd.yDYNvb.lEBKkf').find('em, b')
+                        .map((i, el) => $(el).text().trim()).toArray(),
                     siteLinks,
                 });
             })
@@ -301,6 +296,8 @@ exports.extractPaidResults = ($) => {
                     url: $el.find('a[href*="aclk"]').attr('href'),
                     displayedUrl: $heading.next('div').find('> span > span').text(),
                     description: $el.find('> div > div > div > span').text(),
+                    emphasizedKeywords:  $el.find('> div > div > div > span').find('em, b')
+                        .map((i, el) => $(el).text().trim()).toArray(),
                     siteLinks,
                 });
             });
