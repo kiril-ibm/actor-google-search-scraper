@@ -4,9 +4,11 @@ const { extractPeopleAlsoAsk } = require('./extractor_tools');
 exports.extractOrganicResults = ($) => {
     const searchResults = [];
 
+    // TODO: If you figure out how to reasonably generalize this, you get a medal
     const resultSelectorOld = '.g .rc';
     const resultSelector2021January = '#rso>.g>.tF2Cxc';
-    $(`${resultSelectorOld}, ${resultSelector2021January}`).each((index, el) => {
+    const resultSelector2021January2 = '.hlcw0c .g .tF2Cxc';
+    $(`${resultSelectorOld}, ${resultSelector2021January}, ${resultSelector2021January2}`).each((index, el) => {
         // HOTFIX: Google is A/B testing a new dropdown, which causes invalid results.
         // For now, just remove it.
         $(el).find('div.action-menu').remove();
