@@ -2,13 +2,8 @@ const { ensureItsAbsoluteUrl } = require('./ensure_absolute_url');
 const { extractPeopleAlsoAsk } = require('./extractor_tools');
 
 exports.extractOrganicResults = ($) => {
-    const searchResults = [];
-
-    // TODO: If you figure out how to reasonably generalize this, you get a medal
-    const resultSelectorOld = '.g .rc';
-    const resultSelector2021January = '#rso>.g>.tF2Cxc';
-    const resultSelector2021January2 = '.hlcw0c .g .tF2Cxc';
-    $(`${resultSelectorOld}, ${resultSelector2021January}, ${resultSelector2021January2}`).each((index, el) => {
+    // Executed on a single organic result (row)
+    const parseResult = (el) => {
         // HOTFIX: Google is A/B testing a new dropdown, which causes invalid results.
         // For now, just remove it.
         $(el).find('div.action-menu').remove();
@@ -40,8 +35,8 @@ exports.extractOrganicResults = ($) => {
                         .join(' ') || null,
                 });
             });
-        } else if ($(el).parent().siblings(siteLinksSel2021January).length > 0) {
-            $(el).parent().siblings(siteLinksSel2021January).find('td .sld').each((i, siteLinkEl) => {
+        } else if ($(el).parent().parent().siblings(siteLinksSel2021January).length > 0) {
+            $(el).parent().parent().siblings(siteLinksSel2021January).find('td .sld').each((i, siteLinkEl) => {
                 siteLinks.push({
                     title: $(siteLinkEl).find('a').text(),
                     url: $(siteLinkEl).find('a').attr('href'),
@@ -79,8 +74,18 @@ exports.extractOrganicResults = ($) => {
             siteLinks,
             productInfo,
         };
-        searchResults.push(searchResult);
-    });
+        return searchResult;
+    }
+
+    // TODO: If you figure out how to reasonably generalize this, you get a medal
+    const resultSelectorOld = '.g .rc';
+    // We go one deeper to gain accuracy but then we have to go one up for the parsing
+    const resultSelector2021January = '.g .tF2Cxc>.yuRUbf';
+
+    let searchResults = $(`${resultSelectorOld}`).map((index, el) => parseResult(el)).toArray();
+    if (searchResults.length === 0) {
+        searchResults = $(`${resultSelector2021January}`).map((index, el) => parseResult($(el).parent())).toArray();
+    }
 
     return searchResults;
 };
