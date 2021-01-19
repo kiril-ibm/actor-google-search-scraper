@@ -5,7 +5,7 @@ exports.extractOrganicResults = ($) => {
     const searchResults = [];
 
     const resultSelectorOld = '.g .rc';
-    const resultSelector2021January = '.g .tF2Cxc';
+    const resultSelector2021January = '#rso>.g>.tF2Cxc';
     $(`${resultSelectorOld}, ${resultSelector2021January}`).each((index, el) => {
         // HOTFIX: Google is A/B testing a new dropdown, which causes invalid results.
         // For now, just remove it.
@@ -49,7 +49,9 @@ exports.extractOrganicResults = ($) => {
         }
 
         const productInfo = {};
-        const productInfoText = $(el).find('.dhIWPd').text();
+        const productInfoSelOld = '.dhIWPd';
+        const productInfoSel2021January = '.fG8Fp';
+        const productInfoText = $(el).find(`${productInfoSelOld}, ${productInfoSel2021January}`).text();
         if (productInfoText) {
             const ratingMatch = productInfoText.match(/Rating: ([0-9.]+)/);
             if (ratingMatch) {
