@@ -705,7 +705,7 @@
         "customDataFunction": {
             "title": "Custom data function",
             "type": "string",
-            "description": "Custom JavaScript function to extract additional attributes from the HTML of the result pages. The function accepts the same parameters as the <code>handlePageFunction</code> of the <a href='https://sdk.apify.com/docs/api/cheeriocrawler#new-cheeriocrawleroptions'>CheerioCrawler</a> in Apify SDK. The return value of the function is saved to the results as the <code>customData</code> property.",
+            "description": "Custom JavaScript function to extract additional attributes from the HTML of the result pages. The function accepts the same parameters as the <code>handlePageFunction</code> of the <a href='https://sdk.apify.com/docs/typedefs/cheerio-crawler-options'>CheerioCrawler</a> in Apify SDK. The return value of the function is saved to the results as the <code>customData</code> property.",
             "editor": "javascript",
             "prefill": "async ({ input, $, request, response, html }) => {\n  return {\n    pageTitle: $('title').text(),\n  };\n};"
         },
