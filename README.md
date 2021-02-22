@@ -1,17 +1,18 @@
 # Google Search Results Scraper
 
 - [Features](#Features)
+- [SERP API](#SERP-API)
+- [Cost of usage](#Cost-of-usage)
 - [Use cases](#Use-cases)
 - [Number of results](#Number-of-results)
 - [Input settings](#Input-settings)
-- [Usage](#Usage)
 - [Results](#Results)
 - [Tips and tricks](#Tips-and-tricks)
 - [Changelog](#Changelog)
 
 ## Features
 
-This actor crawls Google Search Result Pages (SERP or SERPs) and extracts data from the HTML to a structured format such as JSON, XML or Excel. Specifically, the actor extracts the following data from each SERP:
+This SERP API actor crawls Google Search Result Pages (SERP or SERPs) and extracts data from the HTML to a structured format such as JSON, XML or Excel. Specifically, the actor extracts the following data from each SERP:
 
 - Organic results
 - Ads
@@ -24,9 +25,21 @@ This actor crawls Google Search Result Pages (SERP or SERPs) and extracts data f
 Note that the actor doesn't support special types of Google searches, such as [Google Shopping](https://www.google.com/shopping),
 [Google Images](https://www.google.com/imghp) or [Google News](https://news.google.com).
 
+## SERP API
+
+Our Google Search Results Scraper gives you a RESTful SERP API that provides real-time results optimized for structured JSON output that you can download and use any way you want.
+
+## Cost of usage
+
+The actor is free to use, but to scrape SERPs effectively, you should use [Apify Proxy](https://apify.com/proxy) and need to have a sufficient limit for Google SERP queries (you can see the limit on your [Account](https://my.apify.com/account) page).
+
+New Apify users have a free trial of Apify Proxy and Google SERPs, so you can use the actor for free at the beginning.
+
+Once the Apify Proxy trial is expired, you'll need to subscribe to a [paid plan](https://apify.com/pricing) in order to keep using the actor. If you need to increase your Google SERP limit or have any questions, please email [support@apify.com](mailto:support@apify.com)
+
 ## Use cases
 
-Google Search is the front door to the Internet for most people around the world, so it's really important for businesses to know how they rank on Google. Unfortunately, Google Search does not provide a public API, so the only way to monitor search results and ranking is to use web scraping.
+Google Search is the front door to the internet for most people around the world, so it's really important for businesses to know how they rank on Google. Unfortunately, Google Search does not provide a public API, so the only way to monitor search results and ranking is to use web scraping.
 
 Typical use cases include:
 
@@ -57,16 +70,6 @@ You can specify the following settings:
 - Mobile or desktop version
 
 For a complete description of all settings of the actor, see the [input specification](https://www.apify.com/apify/google-search-scraper?section=input-schema).
-
-
-## Usage
-
-To use this actor, you'll need access to [Apify Proxy](https://apify.com/proxy) and need to have a sufficient limit for Google SERP queries (you can see the limit on your [Account](https://my.apify.com/account) page).
-
-New Apify users have a free trial of Apify Proxy and Google SERPs, which lets you try this actor free of charge.
-
-Once the Apify Proxy trial is expired, you'll need to subscribe to a [paid plan](https://apify.com/pricing) in order to keep using the actor. If you need to increase your Google SERP limit or have any questions, please email [support@apify.com](mailto:support@apify.com)
-
 
 ## Results
 
@@ -217,7 +220,6 @@ The API will return a result like this (in JSON format):
 ```
 
 When using tabular format such as `csv` or `xls`, you'll get a table where each row contains just one organic result. For more details about exporting and formatting the dataset records, please see the documentation of the [Get dataset items](https://apify.com/docs/api/v2#/reference/datasets/item-collection/get-items) API endpoint.
-
 
 ## Tips and tricks
 

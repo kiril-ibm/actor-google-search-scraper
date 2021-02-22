@@ -57,6 +57,11 @@ Apify.main(async () => {
         handlePageTimeoutSecs: 60,
         requestTimeoutSecs: 180,
         handlePageFunction: async ({ request, response, body, $ }) => {
+            // TODO: Remove this when providers are properly filtering this again
+            if ($('#recaptcha').length) {
+                throw new Error('Captcha found, retrying...');
+            }
+
             request.userData.finishedAt = new Date();
 
             const nonzeroPage = request.userData.page + 1; // Display same page numbers as Google, i.e. 1, 2, 3..
