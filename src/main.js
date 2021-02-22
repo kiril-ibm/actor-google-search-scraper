@@ -25,12 +25,13 @@ Apify.main(async () => {
     } = input;
 
     // Check that user have access to SERP proxy.
-    await ensureAccessToSerpProxy();
-    logAsciiArt();
+    //await ensureAccessToSerpProxy();
+    //logAsciiArt();
 
-    const proxyConfiguration = await Apify.createProxyConfiguration({
-        groups: [REQUIRED_PROXY_GROUP],
-    });
+    //const proxyConfiguration = await Apify.createProxyConfiguration({
+    //    groups: [REQUIRED_PROXY_GROUP],
+    //});
+    const proxyConfiguration = null;
 
     // Create initial request list and queue.
     const initialRequests = getInitialRequests(input);
