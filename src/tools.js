@@ -45,13 +45,17 @@ exports.getInitialRequests = ({
 
             // NOTE: Don't set the "gl" parameter, some Apify Proxy Google SERP providers cannot handle it!
             if (languageCode) qs.hl = languageCode;
-            if (locationUule) qs.uule = locationUule;
+            //if (locationUule) qs.uule = locationUule;
             // Only add this param if non-default, the less query params the better!
             if (resultsPerPage && resultsPerPage !== GOOGLE_DEFAULT_RESULTS_PER_PAGE) qs.num = resultsPerPage;
             if (mobileResults) qs.xmobile = 1;
             if (includeUnfilteredResults) qs.filter = 0;
 
-            return exports.createSerpRequest(`http://www.${domain}/search?${queryString.stringify(qs)}`, 0);
+			//it must not encode locationUule, so handle it separately
+			var queryStr = queryString.stringify(qs);
+			if (locationUule) queryStr += '&'+'uule'+'='+locationUule;
+			
+            return exports.createSerpRequest(`http://www.${domain}/search?${queryStr}`, 0);
         });
 };
 
