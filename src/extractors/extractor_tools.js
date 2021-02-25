@@ -23,6 +23,8 @@ exports.extractPeopleAlsoAsk = ($) => {
                 return;
             }
 
+            console.log('found mod');
+
             // String separation of date from text seems more plausible than all the selector variants
             const date = $Internal('.Od5Jsd, .kX21rb, .xzrguc').text().trim();
             const fullAnswer = $Internal('.mod').text().trim();
