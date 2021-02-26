@@ -56,7 +56,6 @@ Apify.main(async () => {
         handlePageTimeoutSecs: 60,
         requestTimeoutSecs: 180,
         handlePageFunction: async ({ request, response, body, $ }) => {
-            // TODO: Remove this when providers are properly filtering this again
             if ($('#recaptcha').length) {
                 throw new Error('Captcha found, retrying...');
             }
