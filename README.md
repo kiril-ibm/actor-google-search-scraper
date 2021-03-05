@@ -41,6 +41,8 @@ Once the Apify Proxy trial is expired, you'll need to subscribe to a [paid plan]
 
 Google Search is the front door to the internet for most people around the world, so it's really important for businesses to know how they rank on Google. Unfortunately, Google Search does not provide a public API, so the only way to monitor search results and ranking is to use web scraping.
 
+Our free googlescraper tool gives you your own, customizable SERP scraper. You can do whatever you want with the SERP data once you extract and download it.
+
 Typical use cases include:
 
 - [Search engine optimization (SEO)](https://en.wikipedia.org/wiki/Search_engine_optimization)
