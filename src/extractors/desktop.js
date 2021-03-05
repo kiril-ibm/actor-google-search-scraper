@@ -177,7 +177,8 @@ exports.extractTotalResults = ($) => {
 exports.extractRelatedQueries = ($, hostname) => {
     const related = [];
 
-    $('#brs a').each((index, el) => {
+    // 2021-02-25 - Tiny change #brs -> #bres
+    $('#brs a, #bres a').each((index, el) => {
         related.push({
             title: $(el).text(),
             url: ensureItsAbsoluteUrl($(el).attr('href'), hostname),

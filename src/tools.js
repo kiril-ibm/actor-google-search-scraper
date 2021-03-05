@@ -123,7 +123,7 @@ exports.createDebugInfo = (request, response) => {
 };
 
 exports.ensureAccessToSerpProxy = async () => {
-    const userInfo = await Apify.client.users.getUser();
+    const userInfo = await Apify.newClient().user().get();
     // Has access to group and nonzero limit.
     const hasGroupAllowed = userInfo.proxy.groups.filter(group => group.name === REQUIRED_PROXY_GROUP).length > 0;
     const maxSerps = userInfo.limits

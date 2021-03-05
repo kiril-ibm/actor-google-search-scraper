@@ -2,16 +2,17 @@ const cheerio = require("cheerio");
 
 exports.extractPeopleAlsoAsk = ($) => {
     const peopleAlsoAsk = [];
+
     // HTML that we need is hidden in escaped script texts
     const scriptMatches = $('html').html().match(/,\'\\x3cdiv class\\x3d[\s\S]+?\'\)\;\}\)/gi);
 
     if (Array.isArray(scriptMatches)) {
         const htmls = scriptMatches.map((match) => {
-            const escapedHtml =  match.replace(',\'', '').replace('\');})', '');
+            const escapedHtml = match.replace(',\'', '').replace('\');})', '');
             const unescaped = escapedHtml.replace(/\\x(\w\w)/g, (match, group) => {
                 const charCode = parseInt(group, 16);
                 return String.fromCharCode(charCode);
-            })
+            });
             return unescaped;
         });
 
@@ -19,13 +20,13 @@ exports.extractPeopleAlsoAsk = ($) => {
             const $Internal = cheerio.load(html);
 
             // There are might be one extra post that is not really a question
-            if ($Internal('.mod').length === 0) {
+            if ($Internal('[data-md]').length === 0) {
                 return;
             }
 
             // String separation of date from text seems more plausible than all the selector variants
             const date = $Internal('.Od5Jsd, .kX21rb, .xzrguc').text().trim();
-            const fullAnswer = $Internal('.mod').text().trim();
+            const fullAnswer = $Internal('[data-md]').text().trim();
             const dateMatch = fullAnswer.match(new RegExp(`(.+)${date}$`));
             const answer = dateMatch
                 ? dateMatch[1]
