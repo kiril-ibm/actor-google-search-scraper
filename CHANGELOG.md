@@ -1,3 +1,6 @@
+2021-02-25
+- Hotfixed `relatedQueries` and `peopleAlsoAsk` in the new layout
+
 2021-01-19
 - Fixed extractor to work on new Google layout
 - Added parsing emphasized text
