@@ -31,7 +31,7 @@ Apify.main(async () => {
     //const proxyConfiguration = await Apify.createProxyConfiguration({
     //    groups: [REQUIRED_PROXY_GROUP],
     //});
-    const proxyConfiguration = null;
+    const proxyConfiguration = undefined;
 
     // Create initial request list and queue.
     const initialRequests = getInitialRequests(input);
